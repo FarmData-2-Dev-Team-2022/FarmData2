@@ -23,7 +23,7 @@
                 <p>Please Select Tray Seeding or Direct Seeding<label style='color: #da4f3f'>*</label></p>
             </div>
             <div v-if='(selectedSeedingType=="Tray Seedings")' style='padding: 12px;text-align:center;font-size: medium;'>
-                <label>Number of Trays Planted:<label style='color: #da4f3f'>*</label> </label><input data-cy='trays-planted' style='width: 75px;' type='number' v-model='numOfTrays'>
+                <label>Number of Trays Planted:<label style='color: #da4f3f'>*</label> </label><input data-cy='trays-planted' style='width: 75px;' type='number'min="0" v-model='numOfTrays'>
                 <br>
                 <label>Cells per Tray:<label style='color: #da4f3f'>*</label> </label><input data-cy='cells-tray' style='width: 75px;' type='number' v-model='numCellsPerTray'>
                 <br>

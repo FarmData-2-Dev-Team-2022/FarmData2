@@ -23,23 +23,23 @@
                 <p>Please Select Tray Seeding or Direct Seeding<label style='color: #da4f3f'>*</label></p>
             </div>
             <div v-if='(selectedSeedingType=="Tray Seedings")' style='padding: 12px;text-align:center;font-size: medium;'>
-                <label>Number of Trays Planted:<label style='color: #da4f3f'>*</label> </label><input data-cy='trays-planted' style='width: 75px;' type='number'min="0" v-model='numOfTrays'>
+                <label>Number of Trays Planted:<label style='color: #da4f3f'>*</label> </label><input data-cy='trays-planted' style='width: 75px;' type='number'min="0" max='1000000000' @keypress="restrictChars($event)" v-model.number='numOfTrays'>
                 <br>
-                <label>Cells per Tray:<label style='color: #da4f3f'>*</label> </label><input data-cy='cells-tray' style='width: 75px;' type='number' min="0" v-model='numCellsPerTray'>
+                <label>Cells per Tray:<label style='color: #da4f3f'>*</label> </label><input data-cy='cells-tray' style='width: 75px;' type='number' min="0" max='1000000000' @keypress="restrictChars($event)" v-model.number='numCellsPerTray'>
                 <br>
-                <label>Number of Seeds Planted:<label style='color: #da4f3f'>*</label> </label><input data-cy='seeds-planted' style='width: 75px;' min="0" type='number' v-model='numSeedsPlanted'>
+                <label>Number of Seeds Planted:<label style='color: #da4f3f'>*</label> </label><input data-cy='seeds-planted' style='width: 75px;' min="0" max='1000000000' @keypress="restrictChars($event)" type='number' v-model.number='numSeedsPlanted'>
             </div>
             <div v-if='(selectedSeedingType=="Direct Seedings")' style='padding: 12px;text-align:center;font-size: medium;'>
-                <label>Rows per Bed:<label style='color: #da4f3f'>*</label> </label><input data-cy='row-bed' style='width: 75px;'min="0" type='number' v-model='numRowBed'>
+                <label>Rows per Bed:<label style='color: #da4f3f'>*</label> </label><input data-cy='row-bed' style='width: 75px;'min="0" max='1000000000' @keypress="restrictChars($event)" type='number' v-model.number='numRowBed'>
                 <div style='display: flex;text-align:center;padding-top: 25px;'>
-                    <label>Number of Feet:<label style='color: #da4f3f'>*</label> </label><input data-cy='num-feet' style='width: 75px;' min="0" type='number' v-model='numFeet'><dropdown-with-all data-cy='unit-feet' :default-input='selectedFeetUnit' :dropdown-list='feetUnits' @selection-changed='setNewFeetUnit'>Units</dropdown-with-all>
+                    <label>Number of Feet:<label style='color: #da4f3f'>*</label> </label><input data-cy='num-feet' style='width: 75px;' min="0" max='1000000000' @keypress="restrictChars($event)" type='number' v-model.number='numFeet'><dropdown-with-all data-cy='unit-feet' :default-input='selectedFeetUnit' :dropdown-list='feetUnits' @selection-changed='setNewFeetUnit'>Units</dropdown-with-all>
                 </div>
             </div>
        </fieldset>   
        <fieldset class="panel panel-default center-block" style="max-width: 500px;">
             <legend class="panel-heading" style='background-color: #da4f3f; color: white;font-size: x-large;'>Labor</legend>
             <div class="center-block" style='padding: 12px;text-align:center;font-size: medium; display:flex'>
-                 <label>Workers:<label style='color: #da4f3f'>*</label> </label><input data-cy="num-workers" style='width: 50px;' min="0" type='number' v-model='numWorkers'>
+                 <label>Workers:<label style='color: #da4f3f'>*</label> </label><input data-cy="num-workers" style='width: 50px;' min="0" max='1000000000' @keypress="restrictChars($event)" type='number' v-model.number='numWorkers'>
                 <label>Time:<label style='color: #da4f3f'>*</label> </label><input data-cy='time-spent' style='width: 75px;' type='number' v-model='time'>
                 <dropdown-with-all data-cy='time-unit' style='text-align:center;' :default-input='selectedTimeUnit' :dropdown-list='timeUnits' @selection-changed='setNewTimeUnit'></dropdown-with-all> 
             </div>
@@ -111,6 +111,13 @@
                     if(confirm("You have saved a log! Would you like to go the seeding report page?")){
                         window.location.replace('/farm/fd2-barn-kit/seedingReport')
                     }
+                },
+                restrictChars: function($event) {
+                    if ($event.charCode === 0 || /\d/.test(String.fromCharCode($event.charCode))) {
+                        return true
+                    } else {
+                        $event.preventDefault();
+                    }
                 }
             },
             computed: {
@@ -151,30 +158,30 @@
                     if(this.selectedSeedingType == ''){
                         return true
                     }
-                    if(this.time <= 0){
+                    if(this.time == 0){ // need to check if floating point numbers are allowed
                         return true
                     }
                     if(this.selectedSeedingType == 'Direct Seedings'){
-                        if(this.numFeet <= 0){
+                        if(this.numFeet == 0) {// || this.numFeet.isInteger() == false){
                             return true
                         }
-                        if(this.numRowBed <= 0){
+                        if(this.numRowBed == 0) {// || this.numRowBed.isInteger() == false){
                             return true
                         }
                     }
                     if(this.selectedSeedingType == 'Tray Seedings'){
-                        if(this.numCellsPerTray <= 0){
+                        if(this.numCellsPerTray == 0) {// || this.numCellsPerTray.isInteger() == false){
                             return true
                         }
-                        if(this.numOfTrays <= 0){
+                        if(this.numOfTrays == 0) {// || this.numOfTrays.isInteger() == false){
                             return true
                         }
                         
-                        if(this.numSeedsPlanted <= 0){
+                        if(this.numSeedsPlanted == 0) { // || this.numSeedsPlanted.isInteger() == false){
                             return true
                         }
                     }
-                    if(this.numWorkers <= 0){
+                    if(this.numWorkers == 0) { //|| this.numWorkers % 1 != 0) {
                         return true
                     }
                     return false

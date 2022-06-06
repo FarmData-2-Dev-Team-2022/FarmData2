@@ -40,7 +40,7 @@
             <legend class="panel-heading" style='background-color: #da4f3f; color: white;font-size: x-large;'>Labor</legend>
             <div class="center-block" style='padding: 12px;text-align:center;font-size: medium; display:flex'>
                  <label>Workers:<label style='color: #da4f3f'>*</label> </label><input data-cy="num-workers" style='width: 50px;' min="0" max='1000000000' @keypress="restrictChars($event)" type='number' v-model.number='numWorkers'>
-                <label>Time:<label style='color: #da4f3f'>*</label> </label><input data-cy='time-spent' style='width: 75px;' type='number' v-model='time'>
+                <label>Time:<label style='color: #da4f3f'>*</label> </label><input id="minute-form" data-cy='time-spent' style='width: 75px;' type='number' @keypress="restrictChars($event)" v-model.number='time' v-if="selectedTimeUnit === 'minutes'"> <input id="hour-form" data-cy='time-spent' style='width: 75px;' type='number' v-model='time' v-if="selectedTimeUnit === 'hours'">
                 <dropdown-with-all data-cy='time-unit' style='text-align:center;' :default-input='selectedTimeUnit' :dropdown-list='timeUnits' @selection-changed='setNewTimeUnit'></dropdown-with-all> 
             </div>
        </fieldset>
@@ -118,7 +118,14 @@
                     } else {
                         $event.preventDefault();
                     }
-                }
+                },
+                // restrictNegChars: function($event) {
+                //     if ($event.charCode === 0 || /^-\d*/.test(String.fromCharCode($event.charCode)) ) {
+                //         return true
+                //     } else {
+                //         $event.preventDefault();
+                //     }
+                // }
             },
             computed: {
                 areaFilter(){

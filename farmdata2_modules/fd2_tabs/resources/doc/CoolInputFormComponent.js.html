@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: CoolInputFormComponent.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: CoolInputFormComponent.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * A Vue component for a color-changing input form.
+ *
+ * 
+ * @vue-prop {String} defaultInput - The default display value of the input form
+ * @vue-prop {String} firstC - The default color of the first circle element.
+ * @vue-prop {String} secondC - The default color of the second circle element.
+ * @vue-prop {String} thirdC - The default color of the third circle element. 
+ * 
+ * @vue-event {String} input changed - Displays changed input as a text on the bottom and check if the input is a CSS color; if it is, the color of the input form.
+ * @vue-event {String} circle input changed - changes the color of the circles and emits the color value to the parent.
+ * @vue-event resetInput - clears the input field when clicked.
+ */ 
+let CoolInputFormComponent = {
+    template: `&lt;span>
+            &lt;slot>&lt;/slot>
+            &lt;input type="text" id="cool" :style="{'background-color': selectedColor}" @click="resetInput" v-model="typedInput">
+            &lt;p>{{typedInput}}&lt;/p>   
+            &lt;br>
+            &lt;input
+                type="text"
+                v-model="firstColor"
+                @click="resetInput"
+            />
+            &lt;input
+                type="text"
+                v-model="secondColor"
+                @click="resetInput"
+            />
+            &lt;input
+                type="text"
+                v-model="thirdColor"
+                @click="resetInput"
+            />
+            &lt;br>
+            &lt;div v-bind:style="circle1">&lt;/div>
+            &lt;div v-bind:style="circle2">&lt;/div>
+            &lt;div v-bind:style="circle3">&lt;/div>
+            &lt;/span>`,
+    props: {
+            defaultInput:{
+                type: String,
+            }, 
+            firstC: {
+                type: String,
+            }, 
+            secondC: {
+                type: String,
+            }, 
+            thirdC: {
+                type: String,
+            }
+
+
+    },
+    data(){
+        return {
+
+            selectedColor: '',
+            typedInput: this.defaultInput,
+            circle1: {
+                backgroundColor: this.firstC,
+                borderRadius: '50%',
+                width: '100px',
+                height: '100px',
+                margin: '40px',
+                float: 'left',
+            },
+            circle2: {
+                backgroundColor: this.secondC,
+                borderRadius: '50%',
+                width: '100px',
+                height: '100px',
+                margin: '40px',
+                float: 'left',
+            },
+            circle3: {
+                backgroundColor: this.thirdC,
+                borderRadius: '50%',
+                width: '100px',
+                height: '100px',
+                margin: '40px',
+                float: 'left',
+            },
+            firstColor: '', 
+            secondColor: '',
+            thirdColor: '',
+        } 
+    },
+    methods: {
+        resetInput(){
+            this.typedInput = ''
+        },
+        addColorArray(color){
+            this.$emit('update-color', color)
+        }
+    },
+    watch: {
+        typedInput(newTypedValue){
+            var s = new Option().style;
+            s.color = newTypedValue;
+            if ( s.color == newTypedValue.toLowerCase()) {
+                this.selectedColor = newTypedValue;
+            } else {
+                this.selectedColor = '';
+            }
+        },
+        firstColor(newColor) {
+            var s = new Option().style;
+            s.color = newColor;
+            if ( s.color == newColor.toLowerCase() &amp;&amp; newColor !="") {
+                this.firstColor = newColor;
+                this.circle1.backgroundColor = newColor;
+                this.addColorArray(newColor)
+            }
+        },
+        secondColor(newColor) {
+            var s = new Option().style;
+            s.color = newColor;
+            if ( s.color == newColor.toLowerCase() &amp;&amp; newColor !="") {
+                this.secondColor = newColor;
+                this.circle2.backgroundColor = newColor;
+                this.addColorArray(newColor)
+            }
+        },
+        thirdColor(newColor) {
+            var s = new Option().style;
+            s.color = newColor;
+            if ( s.color == newColor.toLowerCase() &amp;&amp; newColor !="") {
+                this.thirdColor = newColor;
+                this.circle3.backgroundColor = newColor;
+                this.addColorArray(newColor);
+            }
+        },
+    }
+
+}
+
+    
+try {
+    module.exports = {
+        CoolInputFormComponent: CoolInputFormComponent
+    }
+}
+catch {}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#CoolInputFormComponent">CoolInputFormComponent</a></li><li><a href="global.html#createRecord">createRecord</a></li><li><a href="global.html#CustomTableComponent">CustomTableComponent</a></li><li><a href="global.html#DateRangeSelectionComponent">DateRangeSelectionComponent</a></li><li><a href="global.html#DateSelectionComponent">DateSelectionComponent</a></li><li><a href="global.html#deleteRecord">deleteRecord</a></li><li><a href="global.html#DropdownWithAllComponent">DropdownWithAllComponent</a></li><li><a href="global.html#getAllPages">getAllPages</a></li><li><a href="global.html#getAreaToIDMap">getAreaToIDMap</a></li><li><a href="global.html#getCropToIDMap">getCropToIDMap</a></li><li><a href="global.html#getIDToAreaMap">getIDToAreaMap</a></li><li><a href="global.html#getIDToCropMap">getIDToCropMap</a></li><li><a href="global.html#getIDToLogTypeMap">getIDToLogTypeMap</a></li><li><a href="global.html#getIDToUnitMap">getIDToUnitMap</a></li><li><a href="global.html#getIDToUserMap">getIDToUserMap</a></li><li><a href="global.html#getLogTypeToIDMap">getLogTypeToIDMap</a></li><li><a href="global.html#getMap">getMap</a></li><li><a href="global.html#getRecord">getRecord</a></li><li><a href="global.html#getSessionToken">getSessionToken</a></li><li><a href="global.html#getUnitToIDMap">getUnitToIDMap</a></li><li><a href="global.html#getUserToIDMap">getUserToIDMap</a></li><li><a href="global.html#quantityLocation">quantityLocation</a></li><li><a href="global.html#updateRecord">updateRecord</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Fri Jun 10 2022 16:18:59 GMT-0400 (Eastern Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

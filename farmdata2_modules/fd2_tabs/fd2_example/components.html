@@ -1,0 +1,43 @@
+<body>
+    <div id='components'>
+        <title>Vue Components Spike</title>
+        <h1>
+            This page is for Vue components practice
+        </h1>
+
+            <cool-input default-input="choose fav color" ><label>color of this input field changes based on input: </label></cool-input>
+            <label> 
+                <color-circle default-value= "tra-" default-color="red" @update-color="updateColor" ></color-circle>
+                <color-circle default-value= "-ffic" default-color="green" @update-color="updateColor" ></color-circle>
+                <color-circle default-value= "lights" default-color="yellow" @update-color="updateColor" ></color-circle>
+            </label>
+            <p>Color history:</p>
+            <ol>
+                <li v-for="color in colors" key="color">{{color}} </li>
+            </ol>
+
+   </div>
+    <script>
+        new Vue({
+            el: '#components',
+            components:{
+                'cool-input': CoolInputFormComponent,
+                'color-circle': ColorCircleComponent,
+            },
+            data: {
+                colors: ["red", "green", "yellow"]
+            },
+            methods: {
+                updateColor(colorArr) {
+                    if(this.colors.includes(colorArr[0])){
+                        return
+                    } else {
+                        this.colors.push(colorArr[0]);
+                    }
+                }
+            },
+
+        })
+    Vue.config.devtools = true;
+    </script>
+</body>

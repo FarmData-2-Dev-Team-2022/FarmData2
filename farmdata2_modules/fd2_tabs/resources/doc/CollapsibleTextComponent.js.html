@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: CollapsibleTextComponent.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: CollapsibleTextComponent.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * A Vue component for collapsible text boxes.
+ *
+ * &lt;p>&lt;b>data-cy attributes&lt;/b>&lt;/p>
+ * &lt;table>
+ * &lt;thead>&lt;tr>&lt;th>Value&lt;/th>        &lt;th>Descripion&lt;/th>&lt;/tr>&lt;/thead>
+ * &lt;tbody>
+ * &lt;tr>&lt;td>details&lt;/td>  &lt;td>The actual interactable box, opens and closes when clicked.&lt;/td>&lt;/tr>
+ * &lt;tr>&lt;td>summary&lt;/td>  &lt;td>Description that goes into the collapsed text box.&lt;/td>&lt;/tr>
+ * &lt;tr>&lt;td>slot&lt;/td>  &lt;td>Whatever is to be rendered using the custom component.&lt;/td>&lt;/tr>
+ * &lt;tr>&lt;td>summary&lt;/td>  &lt;td>Description that goes into the collapsed text box.&lt;/td>&lt;/tr>
+ * &lt;tr>&lt;td>figcaption&lt;/td>  &lt;td>Description of the Pokémon goes in here through a prop.&lt;/td>&lt;/tr>
+ * &lt;tr>&lt;td>figcaption&lt;/td>  &lt;td>Description of the Pokémon's weight and height goes in here through a prop&lt;/td>&lt;/tr>
+ * &lt;tr>&lt;td>figcaption&lt;/td>  &lt;td>Description of the Pokémon's genration and catch rate goes in here through a prop&lt;/td>&lt;/tr>
+ * &lt;/tbody>
+ * &lt;/table>
+ * 
+ * @vue-prop {String} [description] - the Pokedex description of the Pokémon.
+ * @vue-prop {String} [resource] - the link that provides more in-depth information about the Pokémon.
+ * @vue-prop {String} [gen] the generation that Pokémon was introduced.
+ * @vue-prop {Number} [weight] the Pokémon's weight.
+ * @vue-prop {Number} [height] the Pokémon's height.
+ * @vue-prop {Number} [rate] the Pokémon's catch rate.
+ * @vue-prop {Boolean} [selected] whether the text box has been selected or not. Please default to false.
+ * 
+ * @vue-event closedBox - Watches for changes in the state of the collapsible text box. Calls deselect() within itself.
+ * @vue-event deselect - Emits an eveent with the new boolean value to the page so that it can increase or decrease the count accordingly.
+ * @vue-event changeClick - Emits an event with no payload when the collapsible text box is clicked. Changes its state.
+ */ 
+let CollapsibleTextComponent = {
+    template: `                
+    &lt;span>
+    &lt;details @click='changeClick' class='center'>
+        &lt;summary class='centerCollapse fancy'>&lt;slot> &lt;/slot>&lt;/summary>
+        &lt;figcaption width='350' style='font-size: 14px;'> {{description}} &lt;/figcaption> 
+        &lt;br>
+        &lt;figcaption width='350' style='text-align: left;'>Weight: {{weight}}kg &lt;span style='float: right'>Height: {{height}}m&lt;/span>&lt;/figcaption> 
+        &lt;figcaption width='350' style='text-align: left;'>Introduced: Gen {{gen}} &lt;span style='float: right'>Catch Rate: {{rate}}%&lt;/span>&lt;/figcaption> 
+        &lt;figcaption width='center'>&lt;a v-bind:href="resource" target="_blank">Learn More&lt;/a>&lt;/figcaption> 
+        &lt;/details>  
+    &lt;/span>
+              `,
+    props: {
+        description: String,
+        resource: String,
+        gen: String,
+        weight: Number,
+        height: Number,
+        rate: Number,
+        selected: Boolean,
+        
+    },
+    data(){
+        return {
+            closedBox : this.selected,
+        }
+    },
+    methods: {
+        deselect(newBol){
+            this.$emit('change-count', newBol)
+
+        },
+
+        changeClick(){
+            console.log('This is before change click ' + this.closedBox.toString())
+            this.closedBox = !this.closedBox
+            console.log('This is after change click ' + this.closedBox.toString())
+
+        }
+
+    },
+    watch: {
+        closedBox(newState){
+            console.log("This is the new state: " + newState.toString())
+            this.deselect(newState);
+        }
+        }
+    }
+
+
+try {
+    module.exports = {
+        CollapsibleTextComponent: CollapsibleTextComponent
+    }
+}
+catch {}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#CollapsibleTextComponent">CollapsibleTextComponent</a></li><li><a href="global.html#createRecord">createRecord</a></li><li><a href="global.html#CustomTableComponent">CustomTableComponent</a></li><li><a href="global.html#DateRangeSelectionComponent">DateRangeSelectionComponent</a></li><li><a href="global.html#DateSelectionComponent">DateSelectionComponent</a></li><li><a href="global.html#deleteRecord">deleteRecord</a></li><li><a href="global.html#DropdownWithAllComponent">DropdownWithAllComponent</a></li><li><a href="global.html#getAllPages">getAllPages</a></li><li><a href="global.html#getAreaToIDMap">getAreaToIDMap</a></li><li><a href="global.html#getCropToIDMap">getCropToIDMap</a></li><li><a href="global.html#getIDToAreaMap">getIDToAreaMap</a></li><li><a href="global.html#getIDToCropMap">getIDToCropMap</a></li><li><a href="global.html#getIDToLogTypeMap">getIDToLogTypeMap</a></li><li><a href="global.html#getIDToUnitMap">getIDToUnitMap</a></li><li><a href="global.html#getIDToUserMap">getIDToUserMap</a></li><li><a href="global.html#getLogTypeToIDMap">getLogTypeToIDMap</a></li><li><a href="global.html#getMap">getMap</a></li><li><a href="global.html#getRecord">getRecord</a></li><li><a href="global.html#getSessionToken">getSessionToken</a></li><li><a href="global.html#getUnitToIDMap">getUnitToIDMap</a></li><li><a href="global.html#getUserToIDMap">getUserToIDMap</a></li><li><a href="global.html#quantityLocation">quantityLocation</a></li><li><a href="global.html#updateRecord">updateRecord</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Tue Jun 14 2022 12:26:50 GMT-0400 (Eastern Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

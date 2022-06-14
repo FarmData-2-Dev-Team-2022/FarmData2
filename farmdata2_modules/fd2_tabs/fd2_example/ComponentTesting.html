@@ -1,0 +1,139 @@
+<style>
+    .center {
+        display: block;
+        margin-left: 100px;
+        margin-right: 100px;
+        width: 50%;
+    }
+    .centerCollapse {
+        display: block;
+        margin-left: 50px;
+        margin-right: 100px;
+        width: 50%;
+    }
+    summary{
+        display: block;
+        margin-left: 225px;
+        margin-right: 100px;
+        width: 50%;
+    }
+    .fancy {
+        position: center;
+        padding: 1rem;
+        text-align: center;
+        max-width: 200px;
+    }
+</style>
+<body>
+    <h1> Pokemon HeartGold Team </h1>
+    <h3>The following 6 Pokemon were used to play HeartGold:</h3>
+
+    <div id='testingComponent'>
+        <span>Current amount of dropdowns opened: {{count}}</span>
+        <table style="table-layout: fixed; width: 100%">
+        <tr>
+            <td>
+            <h4><dt><abbr title="POKEMON #154">Meganium</abbr></dt></h4>
+            <figure>
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/154.png" id="u01" width="300" height="300" class='center'>
+                <span>
+                    <!-- <details class='center'>
+                        <summary class='centerCollapse fancy'>{{ dropdowncontent }}</summary>
+                        <figcaption width='350' style='font-size: 14px;'>The aroma that rises from its petals contains a substance that calms aggressive feelings.</figcaption> 
+                        <br>
+                        <figcaption width='350' style='text-align: left;'>Weight: 100.5kg     <span style='float: right'>Height: 1.8m</span></figcaption> 
+                        <figcaption width='350' style='text-align: left;'>Introduced: Gen II     <span style='float: right'>Catch Rate: 11.9%</span></figcaption> 
+                        <figcaption width='center'><a href="https://bulbapedia.bulbagarden.net/wiki/Meganium_(Pok%C3%A9mon)" target="_blank">Learn More</a></figcaption> 
+                        </details>   -->
+                    </span>
+                <collapsible-text data-cy="click-collapsible-box" @change-count="changeCount" description="The aroma that rises from its petals contains a substance that calms aggressive feelings."
+                weight='100.5' height='1.8' gen="II" rate='11.9' resource='https://bulbapedia.bulbagarden.net/wiki/Meganium_(Pok%C3%A9mon)' 
+                selected='false'>{{ dropdowncontent }}</collapsible-text>
+            </figure>
+            </td>
+            <td>
+            <h4><dt><abbr title="POKEMON #134">Vaporeon</abbr></dt></h4>
+            <figure>
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/134.png" id="un02" width="300" height="300" class='center'>
+                <collapsible-text @change-count="changeCount" description="When Vaporeon’s fins begin to vibrate, it is a sign that rain will come within a few hours."
+                weight='29.0' height='1.0' gen="I" rate='11.9' resource='https://bulbapedia.bulbagarden.net/wiki/Vaporeon_(Pok%C3%A9mon)' 
+                selected='false'>{{ dropdowncontent }}</collapsible-text>
+            </figure>
+            </figure>
+            </td>
+            <td>
+                <h4><dt><abbr title="POKEMON #054">Arcanine</abbr></dt></h4>
+                <figure>
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/059.png" id="u03" width="300" height="300" class='center'>
+                <collapsible-text @change-count="changeCount" description="The sight of it running over 6,200 miles in a single day and night has captivated many people."
+                weight='155.0' height='1.9' gen="I" rate='17.5' resource='https://bulbapedia.bulbagarden.net/wiki/Arcanine_(Pok%C3%A9mon)' 
+                selected='false'>{{ dropdowncontent }}</collapsible-text>
+            </figure>
+                </figure>
+                </td>
+        </tr>
+
+        <tr>
+            <td>
+                <h4><dt><abbr title="POKEMON #181">Ampharos</abbr></dt></h4>
+                <figure>
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/181.png" id="u04" width="300" height="300" class='center'>
+                <collapsible-text @change-count="changeCount" description="The light from its tail can be seen from space. This is why you can always tell exactly where it is, which is why it usually keeps the light off."
+                weight='61.5' height='1.4' gen="II" rate='11.9' resource='https://bulbapedia.bulbagarden.net/wiki/Ampharos_(Pok%C3%A9mon)' 
+                selected='false'>{{ dropdowncontent }}</collapsible-text>
+            </figure>
+                </figure>
+                </td>
+            <td>
+                <h4><dt><abbr title="POKEMON #197">Umbreon</abbr></dt></h4>
+                <figure>
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/197.png" id="u05" width="300" height="300" class='center'>
+                <collapsible-text @change-count="changeCount" description="When this Pokémon becomes angry, its pores secrete a poisonous sweat, which it sprays at its opponent’s eyes."
+                weight='27.0' height='1.0' gen="II" rate='11.9' resource='https://bulbapedia.bulbagarden.net/wiki/Umbreon_(Pok%C3%A9mon)' 
+                selected='false'>{{ dropdowncontent }}</collapsible-text>
+            </figure>
+                </figure>
+            </td>
+            <td>
+                <h4><dt><abbr title="POKEMON #149">Dragonite</abbr></dt></h4>
+                <figure>
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/149.png" id="u06" width="300" height="300" class='center'>
+                <collapsible-text @change-count="changeCount" description="It’s a kindhearted Pokémon. If it spots a drowning person or Pokémon, Dragonite simply must help them."
+                weight='210.0' height='2.2' gen="I" rate='11.9' resource='https://bulbapedia.bulbagarden.net/wiki/Meganium_(Pok%C3%A9mon)' 
+                selected='false'>{{ dropdowncontent }}</collapsible-text>
+            </figure>
+                </figure>
+                </td>
+        </tr>
+        </table>
+        <p><a :href="resourceLink">Click me </a> </p>
+    </div>   
+        
+    <script>
+        new Vue({
+            el: '#testingComponent',
+            components: {
+                'collapsible-text' : CollapsibleTextComponent
+            },
+            data: {
+                resourceLink: "https://www.youtube.com/",
+                dropdowncontent: "Click for more",
+                count: 0
+
+            },
+            methods: {
+                changeCount(closed){
+                   console.log("This is the change count method: " + closed.toString())
+                   if(closed){
+                    this.count -= 1
+                   }
+                   else{
+                    this.count += 1
+                   }
+               
+               }
+            }
+        })
+    Vue.config.devtools = true;
+    </script>
+</body>

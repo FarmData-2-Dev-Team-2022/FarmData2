@@ -32,7 +32,9 @@
         "@theia/vsx-registry": "latest"
     },
     "devDependencies": {
-        "@theia/cli": "latest"
+        "@theia/cli": "latest",
+        "jsdoc": "^3.6.10",
+        "jsdoc-vuejs": "^4.0.0"
     },
     "scripts": {
         "preinstall": "node-gyp install"

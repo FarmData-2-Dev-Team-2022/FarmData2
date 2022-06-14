@@ -108,6 +108,15 @@ function fd2_example_menu() {
     'weight' => 120,
   );
 
+  $items['farm/fd2-example/ComponentTesting'] = array(
+    'title' => 'Component Testing',
+    'type' => MENU_LOCAL_TASK,
+    'page callback' => 'fd2_example_view',
+    'page arguments' => array('ComponentTesting.html'),
+    'access arguments' => array('view fd2 example'),
+    'weight' => 120,
+  );
+
   return $items;
 };
 

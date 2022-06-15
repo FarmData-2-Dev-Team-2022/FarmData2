@@ -1,0 +1,1836 @@
+[33mcommit 97bd6db1e66311c1758046b9d5cb951eb00f07ff[m[33m ([m[1;36mHEAD -> [m[1;32missue351_DateSelectionComponent[m[33m)[m
+Author: JingyuMarcelLee <leemar@dickinson.edu>
+Date:   Wed Jun 15 17:31:16 2022 -0400
+
+    reverted changes
+
+[33mcommit 51ee46dba6dd0e85d5f10cb63e86c9d806f03fab[m
+Author: JingyuMarcelLee <leemar@dickinson.edu>
+Date:   Wed Jun 15 16:47:01 2022 -0400
+
+    completed testing for change in props, ui.html, and manual testing on the Seeding Input and Report.
+
+[33mcommit 69c33dde1953825d362fe481094d051e4bec9e5d[m
+Author: JingyuMarcelLee <leemar@dickinson.edu>
+Date:   Tue Jun 14 16:52:07 2022 -0400
+
+    changed defaultDate to setDate
+
+[33mcommit 15c43c6a0ed2b771d65505b64668f8bf95608c80[m
+Author: JingyuMarcelLee <leemar@dickinson.edu>
+Date:   Tue Jun 14 16:35:51 2022 -0400
+
+    Added emit when mounted for DateSelection Componenent. Tested this method via cypress in DateSelectionComponent.spec.comp.js.
+
+[33mcommit 397cc69569d0975ceda6bf045167e5ee02b4ba44[m[33m ([m[1;31mupstream/main[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/RenamingDropdownWIthAllProp[m[33m, [m[1;31morigin/RegexInputComponent[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Thu Jun 9 14:19:35 2022 -0400
+
+    Update text of example link.
+
+[33mcommit 6c63103e0bd47d5301fdec92ae70147f20ed2bd2[m
+Author: Chris <31524934+FutzMonitor@users.noreply.github.com>
+Date:   Thu Jun 9 11:37:04 2022 -0400
+
+    Time Reporting: Computes Hours Differently in Seeding Report (#477)
+    
+    * Switched the 'Workers' and 'Hours' columns to more clearly present that hours are totaled together and not hours worked per worker. Fixed some inconsistencies with some headers being capitalized and others not
+    
+    * Changed the way that hours are computed in the Seeding Report to be in the format 'e.g 2 workers for 1 hour = 2 hours'
+    
+    * Modified total hours in the summary pages to work with the new columns because they were still looking for 'seedings' in their conditional statement
+
+[33mcommit 60ea20fcb5e597f34d4ae4da0f69d54335a50bdd[m
+Author: Jingyu (Marcel) Lee <46755208+JingyuMarcelLee@users.noreply.github.com>
+Date:   Thu Jun 9 11:22:00 2022 -0400
+
+    Seeding Input Form UI Design (#478)
+    
+    * Created a new section for comments. Removed comments from the data section. Removed breaking line where comments was removed in data and added it above dates so that it's not so close to the section tab
+    
+    * changed the text for the radio button descriptions. Modified spacing
+    
+    * Added two lins breaks above area in the 'Seeding' Section so that they were not so close. Changed 'Time' to 'For' in the 'Labor' section. Spacing needs to be corrected in a different task.
+    
+    * Removed line breaks as source of padding and added top-margin to the styling in the divs
+    
+    * Adjusted the top-margin to 45, previously 50.
+    
+    * Changed 'Date of seeding' under data to 'Date' and adjusted width of the dropdowns to make sure they are aligned.
+    
+    * Made some language conciseness changes to the text in the 'Seeding' section of the input form
+    
+    * fixed alignment so that mobile display would work the same way as desktop
+    
+    * Removed some lines from the 'Seeding' section
+    
+    * minor changes
+    
+    * Centered the contents of the 'Labor' section. Awaiting changes to DropdownWithAllComponents to be changed from div to span to see these changes
+    
+    * changed size of the input boxes and aligned the dropdowns and boxes
+    
+    * component span reverted
+    
+    * made all necessary changes to accomodate new change in the dropdown component.
+    
+    * typo in dropdown component addressed
+    
+    * fixed minor padding issue with the comment box
+    
+    * deleted unnecessary CSS elements after changes to the components were made. Fixed the order of the labor input forms
+    
+    * reverted change made to the DropDownWithAllComponent.js; changed dropdown to be more clear
+    
+    * Changed width of the input form to display 4 digits by default. Boundsome texts and input form together with label tag to prevent relevent text-inputform fileds from getting splitted when screen size changes.
+    
+    Co-authored-by: Chris <31524934+FutzMonitor@users.noreply.github.com>
+
+[33mcommit a3ce92167d0733336155430f68577f63b7c13098[m
+Author: Chris <31524934+FutzMonitor@users.noreply.github.com>
+Date:   Thu Jun 9 11:07:58 2022 -0400
+
+    Seeding Report Edits (#474)
+    
+    * Switched the 'Workers' and 'Hours' columns to more clearly present that hours are totaled together and not hours worked per worker. Fixed some inconsistencies with some headers being capitalized and others not
+    
+    * Corrected some table headers to be more concise. IN the seeding's column, removed the word 'seeding' for conciseness.
+    
+    * The 'Hours' column now consistenly displays hours up to the second decimal place. Fixed a bug where summary pages where not accurately displaying that no logs with the appropriate parameters existed after filtering through the table
+    
+    * Rearranged the headers for direct seeding. Made sure that the data attached has their orders corrected as well. Summary page for direct seeding has the data it as fetching updated to grab the correct values
+
+[33mcommit 3d8046bee4e5de32812eb6bc2554557e1d13abf8[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Wed Jun 8 16:49:12 2022 -0400
+
+    Change div to span in components (#475)
+
+[33mcommit 16cfb96db22f7e4940a985a22890a4ee536289ab[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Wed Jun 8 15:35:29 2022 -0400
+
+    Changed DropdownWithAllComponent from div to span element (#473)
+
+[33mcommit e7ecd611ae7e60641dd2650e640c338d7041887e[m
+Author: Chris <31524934+FutzMonitor@users.noreply.github.com>
+Date:   Wed Jun 8 08:51:40 2022 -0400
+
+    Removed unnecessary words from summary blocks. Removed 'per' and replaced it with a '/'. Made average rows/hour and bed/hour planted in direct seeding summary consistent with listing of rows and beds feet planted above. (#468)
+
+[33mcommit 0511982c8dbf04e6043979c8eb181cdc14ba8bdd[m
+Author: Chris <31524934+FutzMonitor@users.noreply.github.com>
+Date:   Tue Jun 7 16:30:32 2022 -0400
+
+    Issue332: Sorted seeding report by dates in ascending order (#467)
+    
+    Sorts Seeding report by date.
+
+[33mcommit 6d47f26431ba94c518ef0fada69b669739353865[m
+Author: Jingyu (Marcel) Lee <46755208+JingyuMarcelLee@users.noreply.github.com>
+Date:   Tue Jun 7 11:52:00 2022 -0400
+
+    Issue260: delete total row/bed planted from summary section for direct seeding in the Seeding Report (#463)
+    
+    * Deleted the html component and computed function corresponding to the total bed/row.
+
+[33mcommit 3ab5d351fb9d866dbde5aa3f25a9e550a667fa51[m
+Author: Jingyu (Marcel) Lee <46755208+JingyuMarcelLee@users.noreply.github.com>
+Date:   Tue Jun 7 10:43:10 2022 -0400
+
+    Moved the area dropdown to the seeding selection portion of the form (#462)
+    
+    Co-authored-by: futzmonitor <cgonzalez.smdc@gmail.com>
+
+[33mcommit 33cf747112b7ce9a2e5ea2cd4dd261735cef9af8[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Tue Jun 7 09:44:32 2022 -0400
+
+    Eliminates duplicate areas in drop down (#461)
+    
+    * Eliminates duplicate areas in drop down
+
+[33mcommit e393536513586227346744e18a3cbf48b38b336e[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Mon Jun 6 14:38:54 2022 -0400
+
+    Fix Bug in API Example  (#459)
+    
+    * Added info about docs for maps to maps sub-tab
+    
+    * Removed JSON parsing of data field.
+    
+    The data field is now parsed within the FarmOSAPi.getAllPages method for all requests.
+    
+    * Added clarifying comment
+    
+    * Set correct date for fetching logs
+    
+    * Added test for clearing seeding table
+
+[33mcommit b3efdaf5e06fe9cda923e9fc21c270682a4a0456[m
+Author: John MacCormick <jmac@dickinson.edu>
+Date:   Mon May 9 11:08:05 2022 -0400
+
+    add quotation marks to html attribute values (#455)
+    
+    These quotation marks are not needed for correctness,
+    but it is better to include them for consistency and
+    for other reasons.
+    See e.g.
+    https://stackoverflow.com/questions/6495310/do-you-quote-html5-attributes
+    It would be even better would to keep a consistent style with either
+    all single quotes or all double quotes,
+    but in this commit we are just adding quotation marks where
+    they are missing altogether.
+
+[33mcommit 7fff568d0db58a104322eadf0767f86a5c772fdc[m
+Author: John MacCormick <jmac@dickinson.edu>
+Date:   Mon May 9 11:02:43 2022 -0400
+
+    fix typos in farmdata2_modules/fd2_tabs/resources/CustomTableComponent.js (#456)
+
+[33mcommit 37b98f1babd25c927cc44d1cde878434d0ace3f5[m
+Author: John MacCormick <jmac@dickinson.edu>
+Date:   Wed May 4 22:04:04 2022 -0400
+
+    fix typos in ONBOARDING.md (#454)
+
+[33mcommit 4d91a30ebed8847f8c4a9a4794bbd8494127f3d2[m
+Author: Ezinne Anne Emilia <onwukaezinneanne@gmail.com>
+Date:   Tue Apr 26 12:28:06 2022 +0100
+
+    Add V1 to FarmOS API (#449)
+    
+    * Add V1 to FarmOS API
+    * Add api.html
+
+[33mcommit 67b0a10e0de6449d9b54820167a123be6ce7759a[m
+Author: John MacCormick <jmac@dickinson.edu>
+Date:   Fri Apr 22 12:38:31 2022 -0400
+
+    fix typos in farmdata2_modules/fd2_tabs/resources/FarmOSAPI.js (#446)
+    
+    * fix typos in farmdata2_modules/fd2_tabs/resources/FarmOSAPI.js
+
+[33mcommit 2ac55693384b43059d2d5b867a98b0c5904ba7a8[m
+Author: John MacCormick <jmac@dickinson.edu>
+Date:   Thu Apr 21 14:23:38 2022 -0400
+
+    Typo fixes in fd2_example/README.md (#443)
+    
+    * fix typos in fd2_example/README.md
+
+[33mcommit 5aaae373a8206c851225517e7e5ca7a52bc694ca[m
+Author: John MacCormick <jmac@dickinson.edu>
+Date:   Wed Mar 23 18:29:47 2022 -0400
+
+    fix sampleDB typos (#423)
+    
+    * fix typos in docker/sampleDB/README.md
+
+[33mcommit 42d8e2046114469f1a5d8e0f22a7a8c9b54f65ba[m
+Author: Leah <76408777+goldberl@users.noreply.github.com>
+Date:   Thu Mar 10 12:54:22 2022 -0500
+
+    Updated crop spelling (#421)
+    
+    * Edited crops.csv to correct mispelling of 'radicchio'
+    
+    * Modified translateCrop function in the utils.py file by adding a translation for 'radicchio'
+    
+    * Rebuilt sample database using buildSampleDB.bash script with correct spelling of 'radicchio'
+
+[33mcommit a90bdf095140dd9160a2de39232fb2239b8bc9b7[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Mon Mar 7 13:48:06 2022 -0500
+
+    Updated FarmOS API Links (#413)
+    
+    FarmOS moved to a new version of their API.  For now FarmData2 is still using V1 of the API.  This update ensures that our documentation points to the proper version of of FarmOS's API docs.
+
+[33mcommit 4045f69cbbffd54f4fafa714f7ec9b93c4270d8e[m
+Author: John MacCormick <jmac@dickinson.edu>
+Date:   Tue Feb 8 10:54:05 2022 -0500
+
+    fix instructions for first Vue spike-within-the-spike (need Vue version 2) (#407)
+
+[33mcommit f25a601828b4290a93167a5deeeb0c15ee2b9be2[m
+Author: John MacCormick <jmac@dickinson.edu>
+Date:   Wed Feb 2 09:30:25 2022 -0500
+
+    fix typo in setDB.bash (#386)
+
+[33mcommit c5881c110bebb974e2fbb89d15ba9d8bed640680[m
+Author: Anisha-art <96977038+Anisha-art@users.noreply.github.com>
+Date:   Tue Jan 18 23:52:20 2022 +0530
+
+    Issue-101: Updated instructions on install.md (#383)
+    
+    * Issue-101: Updated instructions on install.md
+    
+    Added the missing information as reported in issue:
+    https://github.com/DickinsonCollege/FarmData2/issues/101
+    
+    * Issue:101
+    
+    Removed the MacOS changes and retained the generic changes in the previous commit: https://github.com/DickinsonCollege/FarmData2/pull/383
+
+[33mcommit 327e20d6c6f82370294acb9ad182436ff77098f5[m
+Author: John MacCormick <jmac@dickinson.edu>
+Date:   Mon Jan 17 12:04:31 2022 -0500
+
+    Typo fixes and other suggestions for FarmData school activities 03-07. (#385)
+    
+    * Typo fixes and other suggestions for FarmData school activities 03-07.
+    
+    This commit is intended to be part of a _draft_ pull request.  It is
+    not intended to be merged.  The docx files are all in Track Changes
+    mode, and some have comments added.  The intention is that a
+    maintainer will examine the changes and approve them with alterations
+    as needed.  After that, a (non-draft) pull request will be created in
+    which the files are not in Track Changes mode and with all of the
+    corresponding pdf files updated with the relevant changes.
+    
+    * Finalizing changes to FarmData2 school Activities 03-07
+    
+    This commit finalizes previously-submitted changes to FarmData2 school
+    Activities 03-07. See commit b3b7a08e3fcf5a4212cf0c6b385dfac2db68c611
+    for details.
+    
+    In this commit, the Accept All Changes and Stop Tracking functionality
+    and Microsoft Word was used to finalize the docx documents. All
+    comments were deleted. The maintainer's suggestions were
+    incorporated. New PDF files were generated from the docx files.
+
+[33mcommit 435174442d7df388b11ca3193143bb87dac37ad2[m
+Author: John MacCormick <jmac@dickinson.edu>
+Date:   Mon Jan 17 08:23:55 2022 -0500
+
+    fixed two typos (#384)
+
+[33mcommit c69d9a37a33ccfd537e5623907f0bb5e724b6a5e[m
+Author: Anisha-art <96977038+Anisha-art@users.noreply.github.com>
+Date:   Thu Jan 13 18:59:20 2022 +0530
+
+    Issue 335: Fixed broken link in License.md>Attributes section (#382)
+    
+    * Issue-335; Fixed a broken link
+    Fixed the broken author's md link on license.md file.
+    
+    Closes #335
+
+[33mcommit 35872531eaa9fd5c9a1b2298bc5b4317103493e7[m
+Author: John MacCormick <jmac@dickinson.edu>
+Date:   Mon Jan 10 12:21:27 2022 -0500
+
+    Typo fix (#379)
+    
+    * fix typo in setDB.bash
+
+[33mcommit faf9c3aef8b4b23397a82b04fe0288f98e0dc682[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Mon Jan 10 10:07:02 2022 -0500
+
+    Switched farmos image to farmdata2/farmos on DockerHub (#378)
+
+[33mcommit 69b5b460c625120604dfa76c0c526929e91492c4[m
+Author: John MacCormick <jmac@dickinson.edu>
+Date:   Sun Jan 9 13:05:55 2022 -0500
+
+    fixed typo in email address (#377)
+
+[33mcommit eaceed65fb4e8226bbe26a428f5614d0bdae128d[m
+Author: John MacCormick <jmac@dickinson.edu>
+Date:   Sat Jan 8 14:17:23 2022 -0500
+
+    fix typo in INSTALL.md (#374)
+    
+    * fix typo in INSTALL.md
+    
+    * Fixed a second typo on the same line.
+    
+    Co-authored-by: Grant Braught <braught@dickinson.edu>
+
+[33mcommit d1557348b0856f9058f850ba9a8784c029a6afcc[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Wed Jan 5 12:22:13 2022 -0500
+
+    Changed default dates for spike to 2020. (#372)
+
+[33mcommit 37311ed819adc50bc579d63e8cffc40f345fcc79[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Wed Jan 5 11:54:40 2022 -0500
+
+    Updated default dates for spikes (#371)
+
+[33mcommit 450316316cf80ccebcbda6a7218cd9656f594604[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Wed Jan 5 11:33:11 2022 -0500
+
+    Fd2 school update (#369)
+    
+    * Added FD2 School tab and fd2_school module
+    * Created separate page for FD2 School Activities.
+    * Linked to that page from the Onboarding page.
+    * Updated all of the activities.
+    * Move the activity source files to the fd2_school module directory.
+    * Updated provided sample database so that FD2 School Tab appears by default.
+
+[33mcommit 3910d90689d25c4b7019d11d874d296346d8e4f9[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Tue Jan 4 21:55:36 2022 -0500
+
+    FarmOSAPI function handle data property (#366)
+    
+    * Added data property parsing to getRecord and getAllPages
+    
+    * Modified seeding report to work with pre-parsed data property
+    
+    * Added stringify of data property to the createRecord function
+    
+    * Removed stringify of data property when creating log
+    
+    * Removed some lingering console.logs
+    
+    * Added stringify of data in updateRecord function
+    
+    * Removed stringifies when updating records from seedingReport
+    
+    * Updated JSDoc comments in FarmOSAPI.js to reflect changes.
+
+[33mcommit 709834e7365e4042ac5fcf4569ac211995f0d760[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Tue Jan 4 15:13:10 2022 -0500
+
+    Updated docs for getAllPages in FarmOSAPI.js (#364)
+
+[33mcommit 217f90c5ee42a4cf192eee819ec05301644ed711[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Mon Jan 3 20:23:48 2022 -0500
+
+    Add data object with crop_tid info. (#363)
+    
+    Added this object to the transplanting logs and the
+    harvest logs. This makes it possible to get the crop name
+    from the tid without retrieving the associated planting.
+    
+    Also regenerated the sample database to include this
+    object in the logs.
+
+[33mcommit b54ed58903d41bba30d8dbea542a4ba1a8aaf5bc[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Sat Jan 1 10:07:36 2022 -0500
+
+    FD2 Example Test Patches (#362)
+    
+    * Patched DropdownWIthALLComponent and tests for new data-cy value
+    
+    * Fixed clear cache test
+
+[33mcommit 48cdf688b8b53eea12f1afbdba456b11bf62bf27[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Fri Dec 31 15:29:22 2021 -0500
+
+    Document components and functions in resources. (#361)
+    
+    * locked versions on vue and axios in FD2 Example, BarnKit and FieldKit modules
+    
+    * Added JSDoc comments to FarmOSAPI.js file
+    
+    * Added script to generate docs
+    
+    * Updated to handle Vue component documentation also
+    
+    * Added configuration file for JSDoc to use Vue plugin
+    
+    * Added JSDoc for the DateSelection Component
+    
+    * Added JSDoc for the DropdownWithAllComponent
+    
+    * Documented data-cy attribute in DateSelectionComponent
+    
+    * Documented data-cy attribute in DateRangeSelectionComponent
+    
+    * Documented data-cy attribute in DropdownWithALlComponent
+    
+    * Added JSDoc to CustomTableComponent
+    
+    * Added generated documentation
+
+[33mcommit 8e94618c29495498955e829ecaaf363d4540d7aa[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Sun Dec 26 21:40:04 2021 -0500
+
+    Updates FarmOSAPI functions and tests for error handling (#359)
+    
+    * Fixed test to use existing log
+    
+    * added reject test for getAllPages
+    
+    * Added map failure handing and test
+    
+    * Adds error handling and test for getSessionToken.
+    
+    * added error handling and tests for getRecord
+    
+    * Added error handing and test for deleteRecord
+    
+    * Added error handing and test for createRecord
+    
+    * Added error handling and test for updateRecord
+    
+    * patched failing api.spec.js test for example tab
+
+[33mcommit e84f571c1f1b7ec0c4382be686a601ee2c63ee5f[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Wed Dec 22 15:33:16 2021 -0500
+
+    New FD2 Example Tab (#358)
+    
+    * Separated fd2vars example
+    
+    * Added tests for Vars example tab
+    
+    * Updated docs to match FD2 Example changes
+    
+    * Renamed fd2vars to vars for consistency
+    
+    * Added example for maps of farmOS values and ids
+    
+    * Fixed typo
+    
+    * Added tests for maps example tab
+    
+    * Added detailed comment
+    
+    * Added pointer to the test files.
+    
+    * Added api page and fetching and testing farm info
+    
+    * Added fetching of seeding logs
+    
+    * Wait in beforeEach for maps to load
+    
+    * Added more detailed comment.
+    
+    * Clarified comments
+    
+    * Refactored beforeEach to wait for maps to load
+    
+    * Clarified comments
+    
+    * Migrated cy.route to cy.intercept
+    
+    * Clarified comments
+    
+    * Revised test for getAllPages
+    
+    * Added getRecord function and tests
+    
+    * revised update test
+    
+    * Change getRecord to work on full url endpoint
+    
+    * Upped default timeout
+    
+    * Adjusted timeouts
+    
+    * Modified to use data-cy attribute
+    
+    * Removed explicit timeouts
+    
+    * Moved test to the vars tab
+    
+    * Added delete tests for api tab
+    
+    * Upped the default requestTimeout
+    
+    * Added example of fetching a single log
+    
+    * Added text pointing to tests
+    
+    * Clarified comments and text
+    
+    * Expanded documentation of localstorage work around
+    
+    * Added example of request caching
+    
+    * Added test for clear cache button
+    
+    * Added UI tab and date select and range elements
+    
+    * Added DropdownWithAll example code
+    
+    * Stubbed out DropdownWithAll tests
+    
+    * Added DropDownWithAll tests
+    
+    * Added fieldset and basic table
+    
+    * Added some table functions
+    
+    * Fixed missing value in edit mode
+    
+    * Added table tests
+    
+    * Added place holder for buttons sample
+    
+    * Added sample buttons and style
+    
+    * Added tests for button functionality
+    
+    * Added example of using the loading spinner
+    
+    * Added test for spinner
+    
+    * Removed old ex1 subtab, updated info for all subtabs
+    
+    * Updated README.md for new example sub-tabs
+    
+    Co-authored-by: IrisSC <shakerci@dickinson.edu>
+
+[33mcommit a2a3ceb4ee506b329c3b906dbdeafe43624b0ea3[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Tue Dec 21 20:42:43 2021 -0500
+
+    Removed missed line causing parse errors (#356)
+
+[33mcommit 710fbf3756cb333b6cdacb4fcaabb6a1ba8a3082[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Tue Dec 21 20:06:26 2021 -0500
+
+    rows/cells have unique data-cy (#355)
+
+[33mcommit e576cc3cd0ee7db16759704bfdf2c05b59d35f7c[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Tue Dec 21 09:45:09 2021 -0500
+
+    Modifying defaultInput prop changes selected value (#350)
+    
+    * Changing prop changes selection
+    
+    * Clarified comment
+    
+    Co-authored-by: Batese2001 <batese@dickinson.edu>
+
+[33mcommit b9ac9af1db24d8272b90156c6272635270c4c7c8[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Thu Dec 16 09:41:47 2021 -0500
+
+    Fixed components link.
+
+[33mcommit 35109d3d3f8722d9b5a4003d32cf4b421201d57d[m
+Author: Christian <31524934+FutzMonitor@users.noreply.github.com>
+Date:   Fri Dec 3 11:15:59 2021 -0500
+
+    corrects the word (comman) -> (command) under the Install the Sample Database Image section of the INSTALL.md file (#318)
+
+[33mcommit b74e72cf7673c4b7afe82a70790a6c8390b7110a[m
+Author: IrisSC <54850069+IrisSC@users.noreply.github.com>
+Date:   Wed Dec 1 11:00:46 2021 -0500
+
+    Clean up example1 tab (#306)
+    
+    * added APIRequestFunction and first test to resources folder
+    
+    * took out api function that is not complete yet
+    
+    * changed all the fields to areas.
+    
+    * added example of fieldset and some comments on the dropdown examples.
+    
+    * deleted the getCropList method and button.
+    
+    * added comments to the data section in Vue and deleted some variables.
+    
+    * moved created function to the bottom of the Vue instance.
+    
+    * deleted the testArea variable.
+    
+    * rename data varaibles and some methods.
+    
+    * clarified comments in data section of the Vue instance.
+    
+    * added comments to and reorganized  methods.
+    
+    * put some better examples in the creared funciton and added comments to the created function and the computed section.
+    
+    * fixes some comments.
+    
+    * added example of getSessionToken fucntion.
+    
+    * modified deleteLog method to use new session token obtained by getSessionToken.
+    
+    * added example of caching using localStorage.
+    
+    * some fixs
+    
+    * added a dayjs example
+    
+    * example of creating a planting log.
+    
+    * fixed all the tests for the Ex1 page, so that thye work now.
+    
+    * added test for caching
+    
+    * added a test for the create planting log button.
+    
+    * delete button test mostly working
+    
+    * took out delete button test.
+    
+    * added comments to the tests for the example1 page.
+    
+    * took out .only in the seeding report page cypress tests.
+    
+    Co-authored-by: josieecook <cookjo@dickinson.edu>
+
+[33mcommit f80e6c1f560ce581e7668fbd0e68458a5d45cef0[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Mon Nov 29 09:27:25 2021 -0500
+
+    Added section on Developer Install.
+
+[33mcommit 8d14ff113e1590e7c0562638e46a43b3fabd781b[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Sun Nov 21 11:35:33 2021 -0500
+
+    Moved theia docker image to farmdata2 dockerhub (#315)
+
+[33mcommit 347db09fa3e13d3ef9c812fb0cb6fde8f5c70f59[m
+Author: Batese2001 <69521504+Batese2001@users.noreply.github.com>
+Date:   Tue Nov 16 13:12:29 2021 -0500
+
+    Disappear page tests (#311)
+    
+    * Added page testing for disappear timing
+    
+    * Added more robust testing and checks
+    
+    * Removed .only
+
+[33mcommit 5baac5993facdce8c625f612b474e36ae2984b9c[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Mon Nov 15 14:01:05 2021 -0500
+
+    Reordered sections
+
+[33mcommit 0ee2eace4e8fc45cdaa95f86c29a463a3d98d863[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Mon Nov 15 13:59:05 2021 -0500
+
+    Adjusted heading levels for consistency.
+
+[33mcommit 23531f23e104627d489c3740f460b9bb0f74c505[m
+Author: IrisSC <54850069+IrisSC@users.noreply.github.com>
+Date:   Sat Nov 13 11:40:27 2021 -0500
+
+    Cache Area and Crop Arrays (#305)
+    
+    * Seeding input caches the area and crop list using LocalStorage.
+    
+    * took out only in cypress tests
+    
+    * resolved some exist merge conflicts from main.
+    
+    * fixed testign for cache area and crop arrays.
+
+[33mcommit 9fa1a605969608591306f2b2a166b78f66946fbd[m
+Author: Batese2001 <69521504+Batese2001@users.noreply.github.com>
+Date:   Wed Nov 10 09:41:59 2021 -0500
+
+    New date change report timing (#307)
+    
+    * Modified DateSelectionComponent to emit an on-click event.
+    * Modified DateRangeSelectionComponent to emit an on-click event.
+    * Seeding Report now hides on click
+    * Added cypress testing and renamed hide event to on-click.
+
+[33mcommit 59cf4f07abb955f067aade7917c2f8a3b5af8daa[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Wed Nov 10 09:37:14 2021 -0500
+
+    Removed .only so all tests run.
+
+[33mcommit 4f94f8dbcf193f264b7c172dff454c8b37986cd4[m
+Author: IrisSC <54850069+IrisSC@users.noreply.github.com>
+Date:   Mon Oct 25 08:28:06 2021 -0400
+
+    Add Cancel Button to Table Component (#302)
+    
+    
+    * Delete button turns to cancel button when the row is being edited. If the cancel button is clicked, then all edits that where made are returned to the values they had before.
+    
+    * when editing, the headers "Edit" and "Delete" are changed to "Save" and "Cancel" repsectivly.
+    
+    * added cypress tests to test that the cancel button exists, the new headers appear, and the cancel button changes values back when clicked.
+    
+    * added emit in cancel row method, and a cypress test for that emit.
+    
+    * added method to seeding report, so filters with not be disabled after cancel button is clicked. Added tests for this as well.
+
+[33mcommit d690cc845a647dd28c6b161ccc0de77d5b8b9d02[m
+Author: IrisSC <54850069+IrisSC@users.noreply.github.com>
+Date:   Wed Oct 20 08:09:44 2021 -0400
+
+    Table Component: Pop-up for Delete Button (#299)
+    
+    * Pop up appears when the user clicks a delete button in the table. The pop up asks the user if they would indeed like to delete the log. The user has the option of "Ok" or "Cancel".
+    
+    * added cypress tests for popup.
+
+[33mcommit 0cbfd4dc07734fe5ec86169cc64ccfbbe5e1070e[m
+Author: IrisSC <54850069+IrisSC@users.noreply.github.com>
+Date:   Mon Oct 18 08:26:52 2021 -0400
+
+    Filter Area for Seeding Type (#291)
+    
+    * When Tray Seeding is selected, only greehouses are available for the are, and when Direct Seeding is selected only fields and beds are avaible.
+    
+    * If the user selects an area incompatable with the area they have chosen. The varaible selectedArea gets turned back to null. This way the user is unable to click submit, until they have selected a new area.
+    
+    * the code saves the users area, so if they switch from tray to direct or vice versa, they dont need to select a new area.
+    
+    * cyrpess tests to check that when tray seeding is selected only greenhouses are avialable and when direct seeding is slected only bed or field areas are avaiable for selection.
+    
+    * fixed up all tests so that they work with the new code.
+    
+    * merged from main
+    
+    * took out the console.log that where in methods and computed functions.
+    
+    * took out the unneeded ".only"
+    
+    Co-authored-by: josieecook <cookjo@dickinson.edu>
+
+[33mcommit d622e8d6d71e27890c73e2428e6dcf9d44ca606e[m
+Author: Batese2001 <69521504+Batese2001@users.noreply.github.com>
+Date:   Mon Oct 11 09:16:07 2021 -0400
+
+    Summary Table Timing and No Log Messages (#289)
+    
+    * Added a message when a date range contains no logs
+    
+    * Summary Tables now remain invisible until the API returns
+    
+    * Summary now shows a message when only direct or tray seeding is in the table
+    
+    * Added Testing for the One Type Message code
+    
+    * Added testing for No Logs message
+    
+    * Added testing for summary table showing up after fully loaded table
+    
+    * Removed redundant logins
+    
+    * Replaced "before" with "beforeEach" and tests now run without 403 errors
+
+[33mcommit 80b4408aa0df6dadc4e5e2c310a5e5cbbc0b9d35[m
+Author: IrisSC <54850069+IrisSC@users.noreply.github.com>
+Date:   Fri Oct 8 14:58:59 2021 -0400
+
+    No Default Label For Drop Down Component (#293)
+    
+    * There is no longer a default label for the DropDownWithAllComponent.
+
+[33mcommit 73feb3808ae8978deaddfeb9eb14ef6d99457d18[m
+Author: IrisSC <54850069+IrisSC@users.noreply.github.com>
+Date:   Fri Oct 8 11:10:30 2021 -0400
+
+    Reorder Seeding  Inputs (#281)
+    
+    * The cypress tests now work with the new order of the inputs.
+    
+    * changed the label or the inputs under the Labor section. Put them all into one line
+    
+    * changed "Number of Seeds Plants" to "Number of Seeds Planted".
+
+[33mcommit e89280874021a1ab107ea28bf71928187cd442b2[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Tue Oct 5 07:52:52 2021 -0400
+
+    Removed Prettier Ignore
+    
+    Comment was added to prevent reformatting by contributor's IDE.  Eventually want to move to using prettier for formatting and didn't want this file to be ignored if/when that happens.  So kept the contribution but removed the comment.
+
+[33mcommit 2b1a8bd298bd1c70e2e4d24be66308fdcd4e58fe[m
+Author: Elad Sheskin <fiveminutes001@gmail.com>
+Date:   Tue Oct 5 14:49:30 2021 +0300
+
+    Updated comment (#288)
+    
+    * Updated comment
+    
+    * prettier-ignore comment added
+
+[33mcommit bda14d2bd89fb1fdc08c3471b9552b2484c1e1fe[m
+Author: IrisSC <54850069+IrisSC@users.noreply.github.com>
+Date:   Mon Oct 4 10:16:02 2021 -0400
+
+    Mark Required Inputs (#286)
+    
+    * added red astrix to all reuired inputs, except those that are about labor. Also added sentence beforesubmit button explaining that all inputs with in astrix need to be filled before the user is able to click the submit button.
+    
+    * All required inputs are now marked by a red astrix.
+    
+    * took out required mark from time unit input.
+
+[33mcommit be6ed516d5eeb982f38487d474f3c4c0f38187f6[m
+Author: Batese2001 <69521504+Batese2001@users.noreply.github.com>
+Date:   Wed Sep 29 08:40:18 2021 -0400
+
+    Spinner reappear (#282)
+    
+    * Loading spinner is now visible after each new date selection
+    
+    * Cypress testing for Loading Spinner has been implemented
+    
+    * Testing now checks if the spinner remains between the button click and API return
+    
+    * Removed faulty test
+    
+    * Removed .only from tests
+
+[33mcommit d10627d3a4dbafb0a9660cd3e85e0513806f266e[m
+Author: IrisSC <54850069+IrisSC@users.noreply.github.com>
+Date:   Mon Sep 27 08:33:27 2021 -0400
+
+    Input Log Submit Button Popup (#279)
+    
+    * when submit button is clicked there is a popup that says that a log has been submitted and asks the user if they want to go to the seeding report page. If the user clicks ok then it takes them there.
+    
+    * create a new labor section and moved number of workers and time spent to that section.
+    
+    * The cypress tests now work with the new order of the inputs.
+    
+    * Added cypress tests to test that the popup appears. When cancel is clicked it returns to the current page and when ok is clicked it takes the user to the Seeding Report Page.
+
+[33mcommit 3ec8a13fb27ed4bf1e5ea27aa8197ffa2c528466[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Wed Sep 8 15:22:10 2021 -0400
+
+    Removed apt update from Cypress Dockerfile (#280)
+    
+    As apt packages were modified by others this began generating errors.
+    Becasue this is a dev only container we'll leave everything fixed
+    at the versions in the base container to prevent future errors. Everything
+    can be moved to newer versions all at once when necessary.
+
+[33mcommit 78d31a973a503b147ddb10c7e6a38f40a5046488[m
+Author: IrisSC <54850069+IrisSC@users.noreply.github.com>
+Date:   Wed Sep 8 15:09:45 2021 -0400
+
+    Default Feet Unit Bed (#276)
+    
+    * The default unit for the number of feet under direct seeding is now bed, instead of nothing
+    
+    * tests that bed is the default unit. Cleans up beforeEachs and other tests that select bed, since it is now selected for them.
+
+[33mcommit 06624a8bb27bee746aa31d613ce3713b41bf7972[m
+Author: IrisSC <54850069+IrisSC@users.noreply.github.com>
+Date:   Wed Sep 8 12:05:40 2021 -0400
+
+    Default Time Unit To Minutes (#277)
+    
+    * the time unit now defaults to minutes.
+    
+    * Tests that it defaults to minutes. Also cleaned up beforeEachs that select minutes, so they are no longer in the test code.
+
+[33mcommit 78307c941e88d8805283773946ff824cef42595f[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Wed Sep 1 10:01:01 2021 -0400
+
+    Added Vue Components links and also pointers to FD2 specific testing docs.
+
+[33mcommit 953ea80f163bc47ee020757ffd7161b17d96e877[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Wed Sep 1 09:43:32 2021 -0400
+
+    Removed unused developmet modules (#275)
+
+[33mcommit f2ea32a89ae654972733c16989b5f14c61b9e8f7[m
+Author: josieecook <60167626+josieecook@users.noreply.github.com>
+Date:   Mon Aug 9 14:47:02 2021 -0400
+
+    Component and Function Documentation (#262)
+    
+    * Added documentation for the custom table component
+    
+    * Added documentation for the dropdown with all component
+    
+    * Added documentation for the dateSelectionComponent.
+    
+    * pulled from origin
+    
+    * Fixed some grammatical, spelling and wording issues.
+    
+    * Added documentation for the getAllPages function.
+    
+    * Added documentation for the getSessionToken function.
+    
+    * Added documentation for the DateRangeSelectionComponent.
+    
+    * added documentation for the map functions.
+    
+    * added documentation for the quantityLocation function.
+    
+    * Added documentation for the createRecord() function.
+    
+    * Added documentation for the updateRecord() function
+    
+    * Added documentation fo the deleteRecord() function
+    
+    * Made the component and function names in the README.md bold
+    
+    * Added markup to the whole documentation page
+    
+    Co-authored-by: IrisSC <shakerci@dickinson.edu>
+
+[33mcommit e105569d5d400a1413fef7925d92ab65cd049f59[m
+Author: IrisSC <54850069+IrisSC@users.noreply.github.com>
+Date:   Fri Jul 23 10:24:29 2021 -0400
+
+    Seedings Input Page and Page Tests (#255)
+    
+    * added APIRequestFunction and first test to resources folder
+    
+    * took out api function that is not complete yet
+    
+    * added Seeding Input subtab to field kit tab
+    Co-Author: Josie Cook @josieecook
+    
+    * added date-selection component in page, default date is today.
+    
+    Co-Author: Josie Cook @josieecook
+    
+    * Add dropdown for crops. Contains all crops in the database.
+    
+    Co-Author: Josie Cook @josieecook
+    
+    * Added dropdown for areas. Includes all areas in the database. Selected crop and area are stored in the data.
+    
+    Co-Author: Josie Cook @josieecook
+    
+    * added selection between Direct and Tray Seedings, which is stored in selectedSeedingType.
+    
+    Co-Author: Josie Cook @josieecook
+    
+    * 'added input to put in the number of workers
+    Co-Author: Josie Cook @josieecook'
+    
+    * added time spent with units (miuntes and hours). Added comments field.
+    
+    Co-Author: Josie Cook @josieecook
+    
+    * Added tray seeding and Direct Seeding inputs. They only appear when the correct one is clicked. Also added the Submit button.
+    
+    Co-Author: Josie Cook @josieecook
+    
+    * button is disabled if all of the required fields do not have inputs. All but comments are currently required.
+    
+    Co-Author: Josie Cook @josieecook
+    
+    * Add stylings to the page.
+    
+    Co-Author: Josie Cook @josieecook
+    
+    * When submit is clicked a planting log is created.
+    
+    Co-Author: Josie Cook @josieecook
+    
+    * can put in a Direct Seeding Log, if they user selects hours and rows for there units.
+    
+    * Can now put in a Tray Seeding Log, but still can not specify units.
+    
+    * can create both Tray and Direct Seeding logs using units.
+    
+    * quantity ids are no longer hard coded. Use the unit map function to get them.
+    
+    * merged from main.
+    
+    * The Direct and Tray seeding IDs are no longer hard coded, but instead get there value from the getLogTypeToIDMap function.
+    
+    * created seedingInput.spec.js for testing seedingInput page.
+    
+    * now tests that the submit button is disabled when the page loads, that the user can put in a new date, and that the user can select a crop.
+    
+    * Added test for slecting an area and inputting a number of workers.
+    
+    * now tests that the user can add comments, time spent, and the unit of time inot the page.
+    
+    * added test for slecting direct seeding and its inputs. Test also checks that the submit button is no longer disabled.
+    
+    * Test that tray seedings inputs can be put in when Tray Seedings is clicked. Also that the submit button is not disabled any more when everything is in.
+    
+    * Tests that tray seedings inputs do not show up when Direct seeding is selected and vice versa.
+    
+    * tests that a tray seeding log gets created when submit button is clicked. Then deletes it.
+    
+    * fixed error where seedings log was not connecting to the planting logs in assets.
+    
+    * tests that a planting log was made by clicking the submit button and then deletes that planting log.
+    
+    * fixed 500 error when minutes was selected for Direct Seedings. Also added difference between when minutes and hours were slected for tray seedings.
+    
+    * now tests that it will create a direct seeding log and a planting log, then deletes both logs.
+    
+    * moved the variable intialization to a before each and the deletion of the seedings and planting logs to a after each, for the "create logs in database" context.
+    
+    * all tests are now independent. The is the button not disabled test were put in there own context. Before and Afters were created for the create log tests, so that code could be consolidated.
+    
+    * test tray seeding for both when hours are slected and when minutes are slected for the time unit.
+    
+    * added tests for selecting minute vs hour for tray seedings and direct seedings, and bed vs row feet for direct seedings.
+    
+    * readded scripts to the fd2_barn_kit.info.
+    
+    Co-authored-by: josieecook <cookjo@dickinson.edu>
+
+[33mcommit dbe05a7eb9a73fe51f6ba33e9ae7c904a1d86c6e[m
+Author: IrisSC <54850069+IrisSC@users.noreply.github.com>
+Date:   Thu Jul 22 16:17:34 2021 -0400
+
+    Remove reports (#257)
+    
+    * removed tray and direct seeding report, harvest report, and transplanting report.
+    
+    * removed report subtabs on page.
+    
+    Co-authored-by: josieecook <cookjo@dickinson.edu>
+
+[33mcommit 16ca66ba85774d6ffe15405dd93f48932a4426ab[m
+Author: josieecook <60167626+josieecook@users.noreply.github.com>
+Date:   Thu Jul 22 16:13:08 2021 -0400
+
+    Seeding Report Page and Tests (#256)
+    
+    * Does not show Direct Seeding Summery when Tray Seedings is selected and vice versa. Data was also organized.
+    
+    Co-Author: Josie Cook @josieecook
+    
+    * numbers in Summary and Hours in table are rounded to two deminal places.
+    
+    Co-Author: Josie Cook @josieecook
+    
+    * changed IDToCropName to idToCropName and changed inputsVisible to reportVisible.
+    
+    Co-Author: Josie Cook @josieecook
+    
+    * fixed typo in updateRow method.
+    
+    Co-Author: Josie Cook @josieecook
+    
+    * only updates the planting log, if crop or user is edited.
+    
+    Co-Author: Josie Cook @josieecook
+    
+    * the area filter array is sorted, same for seeding type array. SeedingList is changed to seedingTypeList.
+    
+    Co-Author: Josie Cook @josieecook
+    
+    * can edit hours without checking if it is a Direct or Tray seeding
+    
+    * Added a loading spinner that displays before the report renders.
+    
+    * The loading spinner stays on the page after the table renders until all of the pages of the request have been fetched.
+    
+    * Disabled the filters when a row in the table is being edited
+    
+    * IDs for the quantity part of the log are no longer hard coded, but instead use the getUnitToIDMap function.
+    
+    * Added tests for both the direct and tray seeding summaries.
+    
+    * Quantities location are no longer hard coded into the edit method.
+    
+    * Only does api request when there is data sent back from the table commonent.
+    
+    * added cypress tests for the visible columns and for the date range selection hiding the report while being edited.
+    
+    * Can now edit a quantity and save, then edit a different quatntity and save. Both will now be saved in the database and seedingLogs.
+    
+    * removed irrlevant changes to table component
+    
+    * Added edit and delete button tests
+    
+    * Increased the timeouts for certain cy.get commands that take longer instead of using cy.wait
+    
+    * Added 'before' blocks to each of the test contexts to make them independant from each other.
+    
+    * All tests can be run individually and no longer rely on previous tests to be successful.
+    
+    * changed tray seeding summary tests to retrieve table values before the individual tests run.
+    
+    * changed direct seeding summary tests to retrieve table values before individual tests run.
+    
+    * Added cypress tests that ensure that the options in the dropdown menus update based on the other filter selections.
+    
+    * Fixed error in updateLog method that prevented crop updates to get added to planting assets.
+    
+    Co-authored-by: IrisSC <shakerci@dickinson.edu>
+
+[33mcommit 5649005e4eb1ce66a3b4e9fcd7bf946428d07f49[m
+Author: josieecook <60167626+josieecook@users.noreply.github.com>
+Date:   Wed Jul 21 13:47:51 2021 -0400
+
+    Table Cypress Tests for changedCell (#250)
+    
+    * Added cypress test that ensures that when a row in the table is being edited if a cell is changed beck to the way it was before editing that cell does not get added to the object that is emitted.
+
+[33mcommit b55144a6e81f48c611ff2d445786aff72c585756[m
+Author: josieecook <60167626+josieecook@users.noreply.github.com>
+Date:   Wed Jul 21 13:46:03 2021 -0400
+
+    Remove Console Logs (#253)
+    
+    * Removed console.log() lines from dropdownWithAllComponent file.
+
+[33mcommit a04eb5af15c6663d5dcb5e864af3328501e317fd[m
+Author: josieecook <60167626+josieecook@users.noreply.github.com>
+Date:   Tue Jul 20 09:31:41 2021 -0400
+
+    Table Component - Updated Variable Names (#252)
+    
+    * fixed outdated variable name in table component template.
+    
+    * Updated all outdated variable names in table component template.
+
+[33mcommit 2529a76762dc4f3e6794eeccbf02ab44c585ef19[m
+Author: josieecook <60167626+josieecook@users.noreply.github.com>
+Date:   Tue Jul 20 08:10:00 2021 -0400
+
+    Decimal input (#251)
+    
+    * Put a step property on the number input to prevent errors in firefox when decimals are entered.
+
+[33mcommit f8f14dc25e1b14a5e28236da445fc52d1a9c2e77[m
+Author: josieecook <60167626+josieecook@users.noreply.github.com>
+Date:   Mon Jul 19 14:09:37 2021 -0400
+
+    Table Editing Changes (#247)
+    
+    * changed the way that the table gets edited by adding an object to save the edited row data until it gets emitted
+    
+    * changed the way that the table gets edited by adding an object to save the edited row data until it gets emitted
+    
+    Co-authored: Iris Shaker-Check @IrisSC
+    
+    * Removed console logs from table component code.
+    
+    * Altered the changedCell method in the table component to remove an index from the indexesToChange array if the value has been changed back to it's original state.
+    
+    * Added an 'originalRow' variable in the data that helps with comparison in the changedCell method.
+    
+    Co-authored-by: IrisSC <shakerci@dickinson.edu>
+
+[33mcommit 7d41a0fe5d32f27b7d621962481c75b608aad839[m
+Author: IrisSC <54850069+IrisSC@users.noreply.github.com>
+Date:   Thu Jul 15 08:30:14 2021 -0400
+
+    Map Function Tests (#248)
+    
+    * User map cypress test no longer of id numbers hard coded into them. Inside the get the value from one and test it in the other.
+    
+    * crop map cypress tests no longer have ids hard coded into them.
+    
+    * Area map function cypress tests no longer have the ids hard coded into the tests.
+    
+    * Deleted the old area map function cypress tests.
+    
+    * The Unit map cypress test no longer have the ids hard coded into the tests.
+    
+    * Log Type functions cypress tests no longer have hard coded ids.
+
+[33mcommit db356518d5e3d6841bb249c11d62f9ec2ce146d8[m
+Author: josieecook <60167626+josieecook@users.noreply.github.com>
+Date:   Wed Jul 14 10:57:31 2021 -0400
+
+    Number Input in Table - @change (#246)
+    
+    * Fixed problem with event not firing on change of a number input in the table.
+    
+    Co-authored-by: IrisSC <shakerci@dickinson.edu>
+
+[33mcommit 38aecc883864ac8b139e571ea884e2fa1765bbf6[m
+Author: IrisSC <54850069+IrisSC@users.noreply.github.com>
+Date:   Wed Jul 14 10:36:21 2021 -0400
+
+    Log type map (#245)
+    
+    * created functions that map log category to id and vice versa along  with cypress tests. Also fixed other cypress mapping tests that had the wrong id number
+    
+    * .only was removed from the map functions context.
+    
+    Co-authored-by: josieecook <cookjo@dickinson.edu>
+
+[33mcommit 00cea570e818c25c14bd6d14178ce81bdc758bdd[m
+Author: josieecook <60167626+josieecook@users.noreply.github.com>
+Date:   Wed Jul 14 09:04:42 2021 -0400
+
+    Table Styling Update (#244)
+    
+    * Created CSS classes that make the edit and delete buttons in the table slightly smaller and the text in the table slightly larger and darker.
+    
+    Co-authored-by: IrisSC <shakerci@dickinson.edu>
+
+[33mcommit 953dd7106624b62c54f6c2d22461735200a21b36[m
+Author: IrisSC <54850069+IrisSC@users.noreply.github.com>
+Date:   Tue Jul 13 10:57:05 2021 -0400
+
+    Quantity placement (#243)
+    
+    * created quantity location function and tested it in ex1 subtab.
+    
+    * added cypress test for quantityLocation function.
+    
+    Co-authored-by: josieecook <cookjo@dickinson.edu>
+
+[33mcommit d6c3396c8b79a7cd04236051d27216034439baa2[m
+Author: josieecook <60167626+josieecook@users.noreply.github.com>
+Date:   Tue Jul 13 10:55:49 2021 -0400
+
+    Table Component Updates (#241)
+    
+    * Fixed table component so that visibleColumns can be updated dynamically after the page has loaded.
+    
+    * Fixed the table component so that the dropdown menus in edit mode contain the options that were passed to the table.
+    
+    Co-authored: Iris Shaker-Check @IrisSC
+    
+    * Disabled all delete buttons when a row is being edited.
+    
+    * Added cypres test for the disabling of the delete buttons
+    
+    * The table component emits an event without a payload when the edit button is clicked. Cypress tests have been added to test this.
+    
+    * REmoved the seeding report page from this branch
+    
+    * Update to pull request to restore lines in fd2_example.info.
+    
+    Co-authored-by: IrisSC <shakerci@dickinson.edu>
+
+[33mcommit 2b68298fe4cff34862362595bf8acdad650274e3[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Mon Jul 12 08:47:06 2021 -0400
+
+    Add Harvest Data to Sample DB (#240)
+    
+    * Moved addition of category after heading is printed
+    
+    * Corrected typo in SQ10 area.
+    
+    * Added translation for bad area ASPARAGUS
+    
+    * Added harvest data
+    
+    * Added 2017 seedings for harvests in 2019
+    
+    * Added user translation for 2017 user
+    
+    * Fixed undefined variable error introduced earlier
+    
+    * Documented added seedings and field remappings to make all records work.
+    
+    * Small edit
+    
+    * Added map for unit to measure conversion
+    
+    * Scripts for adding and deleting harvest logs
+    
+    * Fixed typo in measure map name
+    
+    * Documented harvest logs
+    
+    * added call to script that adds harvest logs
+    
+    * Rebuilt sample databadatabase with harvest logs
+
+[33mcommit 45c5ad537b5f7031cecc85ceba644aee015b1799[m
+Author: IrisSC <54850069+IrisSC@users.noreply.github.com>
+Date:   Fri Jul 9 15:01:19 2021 -0400
+
+    Unit maps (#239)
+    
+    * created functions to get map of quantity units to id and vice vera. Built cypress tests to test them, all run smoothly.
+    
+    Co-authored-by: josieecook <cookjo@dickinson.edu>
+
+[33mcommit 5728a4a3efcda65d752ab141c958d9f0875a35bb[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Fri Jul 9 11:30:25 2021 -0400
+
+    Adds Crop Conversion Units (#237)
+    
+    * Updated crops.csv with new classifications
+    
+    * Updated tests to match changes to crops
+    
+    * Fixed formatting of comments
+    
+    * Changed formatting of concatenated comments
+    
+    * Added translation for Greens, Mes Mix
+    
+    * rebuilt sample database
+    
+    * Add units before crops so crops can have default and conversion units
+    
+    * Add fields to the farm_crops bundule
+    
+    * Mount php script to container for adding fields
+    
+    * Added units and conversions to crops
+    
+    * Added default crop units
+    
+    * Made units upper case for consistency
+    
+    * added map and validation functions for units
+    
+    * Default units added to all crops
+    
+    * Adds quantity field for all conversions for crops
+    
+    * update to build full db with crop units
+    
+    * Fixed error introduced in changing to use getAllPages
+    
+    * generaated new sample database with crop units and conversions
+    
+    * Documented the addition of conversion units and the transplanting lgos
+
+[33mcommit 1dd5d44798831831d42ee78b7481cff527a9c151[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Fri Jul 9 11:26:21 2021 -0400
+
+    Translate 0000-00-00 Transplantings (#236)
+    
+    * Changed transplantings without date to use transplant date for planting
+    
+    * Generated new sample db without using 0000 dates.
+
+[33mcommit 9a40dad5d95de0299f4feaee1a423c9c92edca4e[m
+Author: josieecook <60167626+josieecook@users.noreply.github.com>
+Date:   Fri Jul 9 11:25:44 2021 -0400
+
+    Table Component - Fix Dropdown Event Handler (#232)
+    
+    
+    
+    * Fixed missing event handler on the dropdown input.
+    
+    Co-authored-by: IrisSC <shakerci@dickinson.edu>
+
+[33mcommit 6fe08866beffe2012fa6e10a0c06c9a51785e9e4[m
+Author: josieecook <60167626+josieecook@users.noreply.github.com>
+Date:   Thu Jul 8 16:03:50 2021 -0400
+
+    Table Colors (#234)
+    
+    
+    * Changed colors of table header and delete button to match FarmOS.
+    
+    Co-authored-by: IrisSC <shakerci@dickinson.edu>
+
+[33mcommit 3473d32031001ef8dc9dc9cc28a010a18654b9e8[m
+Author: josieecook <60167626+josieecook@users.noreply.github.com>
+Date:   Thu Jul 8 16:00:48 2021 -0400
+
+    Table Component - Optional Input Types (#231)
+    
+    
+    * Made the inputOptions prop optional, and if none is provided all input types default to text inputs.
+    
+    * Changed table cypress tests to not include the now optional props when they are not needed
+    
+    Co-authored-by: IrisSC <shakerci@dickinson.edu>
+
+[33mcommit d5c11c429b2571279b1ab3b1be4e1cdcc126bfba[m
+Author: josieecook <60167626+josieecook@users.noreply.github.com>
+Date:   Wed Jul 7 10:41:56 2021 -0400
+
+    Table Component - Optional visibleColumns (#230)
+    
+    * Made the visibleColumns prop in the table component optional, if it is not specified then all columns are visible.
+    
+    Co-authored-by: IrisSC <shakerci@dickinson.edu>
+
+[33mcommit 6f75e2f034f98926bbcb7c2da0aa3db519b152c1[m
+Author: josieecook <60167626+josieecook@users.noreply.github.com>
+Date:   Tue Jul 6 22:46:21 2021 -0400
+
+    Table Component - Dynamic Height (#229)
+    
+    * Changed height to max-height in the table component CSS so that it will dynamically chenge to the exact height of the displayed rows until it becomes too large to fit on the page.
+    
+    Co-authored-by: IrisSC <shakerci@dickinson.edu>
+
+[33mcommit b2142ce0a85cd29ee0ed6827740bfe5c91770391[m
+Author: josieecook <60167626+josieecook@users.noreply.github.com>
+Date:   Tue Jul 6 22:45:01 2021 -0400
+
+    Table Component - Customizable Input Types (#228)
+    
+    
+    
+    * Switched out the input elements in the custom table component with textarea elements
+    
+    * Table inputs can now be set as text or dropdown types through a prop array.
+    
+    * Changed the structure of the passed inputOptions prop to be an array of objects.
+    
+    * Added input options of date and number to the table component.
+    
+    * Added a possible input type 'no input' that allows certain columns to be uneditable
+    
+    * Fixed cypress tests to ignore white space in the table content.
+    
+    * Added cypress tests for the customizable input types within the table.
+    
+    * Added cypress test for the 'no input' option.
+    
+    Co-authored-by: IrisSC <shakerci@dickinson.edu>
+
+[33mcommit 486377b2b9906dbcd863e2d12f81ad8f68544995[m
+Author: josieecook <60167626+josieecook@users.noreply.github.com>
+Date:   Fri Jul 2 14:51:34 2021 -0400
+
+    Table Component - Strings to HTML (#227)
+    
+    * Changed the table component template so that strings constaining html elements are displayed as rendered html and updated cypress tests to reflect the change.
+    
+    * Added cypress tests that ensures html tags in strings are rendered as elements in the table.
+    
+    * Changed cypress tests to use data-cy instead of nth-child.
+    
+    
+    Co-authored-by: IrisSC <shakerci@dickinson.edu>
+
+[33mcommit 1504dd08e9783488b1c068b10870396528b8f673[m
+Author: josieecook <60167626+josieecook@users.noreply.github.com>
+Date:   Thu Jul 1 14:10:49 2021 -0400
+
+    Sticky Header (#226)
+    
+    
+    * Added code to fd2.css and classes to the table component template that makes the table component have a scroll bar and sticky header when there are too many rows to fit on one page.
+    
+    * added more objects to the testObjectArray in ex1.html to demonstrate the scroll bar and sticky header of the table.
+    
+    Co-authored-by: IrisSC <shakerci@dickinson.edu>
+
+[33mcommit 219ce85beb46a4d2a3db834688925abe1902dfa9[m
+Author: josieecook <60167626+josieecook@users.noreply.github.com>
+Date:   Thu Jul 1 14:06:45 2021 -0400
+
+    Dropdown Component - selectionChanged Update (#225)
+    
+    
+    * The dropdownWithAll component now emits the selectionChanged event on @change instead of @focusout, and the cypress tests have been updated to reflect this.
+    
+    Co-authored-by: IrisSC <shakerci@dickinson.edu>
+
+[33mcommit c794058b0121859e48a1d2a4f7fed691fd653233[m
+Author: josieecook <60167626+josieecook@users.noreply.github.com>
+Date:   Wed Jun 30 13:09:22 2021 -0400
+
+    Table Component - Styling and Visible Columns (#219)
+    
+    
+    * Table component now has FarmOS classes that affect styling and a visibleColumns property that can be used to hide particular columns. A line of code on line 138 of ex1.html has been commented out because it was causing issues with table functionality. Co-authored: Iris Shaker-Check @IrisSC
+    
+    * New cypress tests for the table component that ensure that the visibleColumns property prevents the display of certain columns
+    
+    Co-authored-by: IrisSC <shakerci@dickinson.edu>
+
+[33mcommit c690145b682fc2146823bdb9f7d21ebbbf9f9f2d[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Wed Jun 30 11:48:23 2021 -0400
+
+    Adds Transplant Data (#223)
+    
+    * Adds missing seedings for transplandings
+    
+    * Transplanting scripts completed.
+    
+    * Clarified handling of 0000-00-00 seeding dates
+    
+    * added transplantings to the main sample db build script
+    
+    * Built sample DB wDB with transplantings.
+
+[33mcommit e05ca2a006ad2c4501435ab57a336efc4b53d893[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Wed Jun 30 11:15:28 2021 -0400
+
+    Drops taxonomy_csv module (#221)
+    
+    * removed taxonomy_csv module, rebuilt empty db image
+    
+    * rebuilt sample db db without taxonomy_csv module
+
+[33mcommit 197ebe2043c3bf8380205e875f031bc050a28a9a[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Tue Jun 29 17:20:17 2021 -0400
+
+    Updates Sample Database (#220)
+    
+    * Updated crops.csv with new classifications
+    
+    * Updated tests to match changes to crops
+    
+    * Fixed formatting of comments
+    
+    * Changed formatting of concatenated comments
+    
+    * Added translation for Greens, Mes Mix
+    
+    * rebuilt sample database
+
+[33mcommit 12ce8094e56ce248edbdd5eac25acafdc612746e[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Tue Jun 29 15:45:34 2021 -0400
+
+    Fixes Tests for FarmOSAPI.js Functions (#218)
+    
+    * Fixed getAllPages tests
+    
+    * Tests fixed and running, API made more uniform
+    
+    * Changed Field to Area to be consistent, documented functions
+
+[33mcommit 9f9fdbdd77b674cb39c0e7e8ac7f6b5ca332022b[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Tue Jun 29 08:15:10 2021 -0400
+
+    Updates the Names of Crops (e.g. ONION-SPRING) (#217)
+    
+    * Switched to compound names for sub-crops (e.g. ONION-SPRING)
+    
+    * Added cropID to data of direct seedings
+    
+    * Added cropID to data in tray seedings
+    
+    * Changed cropID to crop_tid in data field for direct and tray seedings
+    
+    * Updated samplle de database.
+
+[33mcommit ae6a78d9b0fb50ed3955acb1e405b8fefa0b86bd[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Mon Jun 28 13:49:43 2021 -0400
+
+    Updated INSTALL.md for access token requirement (#216)
+
+[33mcommit e0fc9656e89d8954b832bfc859e701f42c8b4b09[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Mon Jun 28 10:55:12 2021 -0400
+
+    Removed unintentionally merged spike code (#215)
+
+[33mcommit 35ecf7f4df2522cdc6008e0641a2ea8036a94c4a[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Mon Jun 28 10:49:35 2021 -0400
+
+    Adds updateLog function to FarmOSAPI.js (#214)
+    
+    
+    * the modify function works for both changing the name and the timestamp of a log
+    
+    * started cypress test. Currently the wrap throughs an error
+    
+    * Merged test code
+    
+    Co-authored-by: josieecook <cookjo@dickinson.edu>
+    Co-authored-by: IrisSC <shakerci@dickinson.edu>
+
+[33mcommit f9541a3383d038ce0ef1f744bfdac407c2b97284[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Mon Jun 28 10:33:00 2021 -0400
+
+    Adds createLog function to FarmOSAPI.js (#213)
+    
+    
+    * createLog fucntion and non-functioning cypress tests
+    
+    * added chained '.then()'s to the createLog cypress tests
+    
+    * Completed cypress tests for createLog function, but need to be merged into a branch with deleteLog function
+    
+    * Cleaned up formatting and small issues
+    
+    Co-authored-by: josieecook <cookjo@dickinson.edu>
+    Co-authored-by: IrisSC <shakerci@dickinson.edu>
+
+[33mcommit 1fb2f822dfdf9449d9e9c775d443fd251db0b42d[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Mon Jun 28 09:57:52 2021 -0400
+
+    Adds user/crop/area mapping functions (#211)
+    
+    * added APIRequestFunction and first test to resources folder
+    
+    * took out api function that is not complete yet
+    
+    * added functions getCropMap, getFieldMap, getUserMap, and getMap.
+    The first three functions call getMap. Then get map uses there url and id to create a map that has the id to the name of the crop,field, user, or other piece of information that would be useful in a map structure
+    
+    * added function for getting a map that maps crop, user, or field to an id. Added test for these functions in cypress. Also added tests for the functions that mapped id to crop,user, or field.
+    
+    * fixed discription of length test for getCropToIDMap
+    
+    * all test for crop,field, or user to id and vice versa work correctly
+    
+    * put in requested changes.
+    
+    This included changing the crop url and having each function only have one test(combining the old tests). Also put all the tests for the map functions into one context.
+    
+    * Removed incorrectly merged test code, renamed orig db to work with setDB.bash script
+    
+    Co-authored-by: josieecook <cookjo@dickinson.edu>
+    Co-authored-by: IrisSC <shakerci@dickinson.edu>
+
+[33mcommit 0e69d9924ae6a835c6ccf10b3f3735f0c531389f[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Sun Jun 27 11:39:11 2021 -0400
+
+    Updated script to set farm name and slogan (#208)
+
+[33mcommit 680ac75ec6615e139ea0602b71eba81a7703925c[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Sun Jun 27 11:24:17 2021 -0400
+
+    Enable fd2 mods (#207)
+    
+    * enabled FarmData2 modules
+    
+    * Updated sample db db image so FarmData2 modules are enabled.
+    
+    * Packed db with ush user logged out.
+
+[33mcommit 61fecc239effb977b25a9d1f32e6ccf0f7b41287[m
+Author: IrisSC <54850069+IrisSC@users.noreply.github.com>
+Date:   Sun Jun 27 11:09:00 2021 -0400
+
+    Table component (#196)
+    
+    
+    * added table component and test file for table component
+    
+    * merged with the main branch from upstream
+    
+    * Updated import statments in the component and component tests to match the new ones used in the date selection components
+    
+    * Updated cypress tests to be more efficient in their use of mounts
+    
+    * All cypress tests for the table component are passing
+    
+    * Added functional cypress tests that ensure that events are being emitted with the correct payload when the save and delete buttons are clicked
+    
+    * only one row in the table it editable at a time. the event payload for the save button is all the cells that have been changed with their new values
+    
+    Co-authored-by: Josie Cook @josieecook
+    
+    * updated testing: correctly test for the new emites when the save button is clicked and test that only one row is editable at a time
+    
+    Co-authored by: Josie Cook @josieecook
+    
+    * made table component cypress tests more consistent and fixed some small errors
+    
+    * Removed dead code and created more consistent/readable names in the table component (based on code review)
+    
+    Co-authored-by: Grant Braught @braughtg
+    Co-authored-by: Iris Shaker-Check @IrisSC
+    
+    * the delete, edit, and save buttons are now icons
+
+[33mcommit 469d953a3ea3d843239b77fd2c060a4a16ce9b95[m
+Author: Grant Braught <braught@dickinson.edu>
+Date:   Sun Jun 27 10:43:14 2021 -0400
+
+    Adds new sample database (#206)
+    
+    * Added bzip of db folder with no data.
+    
+    * Updated db.empty.tar.bz2 to use mounted farmdata2 logo file.
+    
+    * Added db containing only the users as a temporary checkpoint.
+    
+    * Updated empty db  image to include the taxonomy_csv module.
+    
+    * Added the taxonomy_csv module to the empty db
+    
+    * Added the taxonomy_csv module via docker mount instead of in docker image.
+    
+    * Removed db zip with users in favor of doing it programatically on top of empty.
+    
+    * Started script for sample db creation - makes users so far.
+    
+    * Progress on the creation of vocabs with python
+    
+    * Adds script to add field.csv contents to FarmData2 as Farm Areas
+    
+    * Added comments to areas.csv to describe format
+    
+    * Added printed header and trailer for adding areas
+    
+    * Added scripts and data for creating Crop Families and Crop/Varities vocabularies
+    
+    * crop families are deleted after crops.
+    
+    * Added documentation of vocabularies
+    
+    * Added urls for the relevant endpoints
+    
+    * Fixed errormessage text
+    
+    * Removed unused time import
+    
+    * delete and add log categories for direct and tray seedings
+    
+    * Adds direct seeding data
+    
+    * Ensured all crops and families are deleted
+    
+    * Ensured that all areas are deleted
+    
+    * Added 2019 and 2020 data
+    
+    * Translations for bad areas/crops added
+    
+    * Added a pasture since it shows up in the data
+    
+    * Added data from Jan 1 2019 - July 15, 2020
+    
+    * refactored to use getVocabularyID function
+    
+    * Changed lists to maps for crops and areas"
+    
+    * Added plantings for each direct seeding
+    
+    * Added user name translation for anonymization
+    
+    * Added units & refacotored functions into utils.py
+    
+    * Added units.csv data file
+    
+    * Direct seetings added to db.
+    
+    * documented seedings and plantings.
+    
+    * completed direct seedings
+    
+    * deleted file
+    
+    * Tray seedings completed.
+    
+    * Added context to docs.
+    
+    * Added compressed sample database file.
+    
+    * small edits
+    
+    * Added script for changing databases.
+    
+    * Updated script and install directions.
+    
+    * renamed original db image file.

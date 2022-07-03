@@ -126,8 +126,8 @@ let CustomTableComponent = {
                     </tr>
                 </tbody>
             </table>
-        </span>
-    </div>`,
+        </div>
+    </span>`,
     props: { 
         rows: {
             type: Array,

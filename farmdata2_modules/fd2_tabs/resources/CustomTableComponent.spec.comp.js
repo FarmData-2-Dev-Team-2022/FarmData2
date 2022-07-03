@@ -506,11 +506,10 @@ describe('custom table component', () => {
         })
     })
 
-    context.only('export csv file', () => {
+    context('export csv file', () => {
+        const path = require("path");
         let comp;
         beforeEach(() => {
-            // Clears download folder
-            cy.exec('rm cypress/downloads/*', { log: true, failOnNonZeroExit: false });
             comp = mount(CustomTableComponent, {
                 propsData: {
                     rows: [ {id: 10, data: [12, 3, 'answome']},
@@ -538,6 +537,23 @@ describe('custom table component', () => {
             cy.get('[data-cy=export-btn]')
                 .click();
 
+            const downloadsFolder = Cypress.config("downloadsFolder");
+            cy.readFile(path.join(downloadsFolder, 'seedingReport_' + today + '.csv')).should("exist");
+
+        });
+
+        it('verifies content of csv', () => {
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+            var yyyy = today.getFullYear();
+            today = mm + dd + yyyy;
+            cy.get('[data-cy=export-btn]')
+                .click();
+
+            let fileName = '../downloads/seedingReport_' + today + '.csv'
+            const downloadsFolder = Cypress.config("downloadsFolder");
+            cy.readFile(path.join(downloadsFolder, 'seedingReport_' + today + '.csv')).should("eq", "cool,works?\n12,3\n19,3\n12,12");
         });
     })
 })

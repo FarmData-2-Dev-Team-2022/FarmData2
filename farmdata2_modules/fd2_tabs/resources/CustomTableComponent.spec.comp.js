@@ -508,6 +508,7 @@ describe('custom table component', () => {
 
     context('export csv file', () => {
         const path = require("path");
+        const downloadsFolder = 'cypress/downloads'
         let comp;
         beforeEach(() => {
             comp = mount(CustomTableComponent, {
@@ -537,7 +538,6 @@ describe('custom table component', () => {
             cy.get('[data-cy=export-btn]')
                 .click();
 
-            const downloadsFolder = Cypress.config("downloadsFolder");
             cy.readFile(path.join(downloadsFolder, 'seedingReport_' + today + '.csv')).should("exist");
 
         });
@@ -551,9 +551,8 @@ describe('custom table component', () => {
             cy.get('[data-cy=export-btn]')
                 .click();
 
-            let fileName = '../downloads/seedingReport_' + today + '.csv'
-            const downloadsFolder = Cypress.config("downloadsFolder");
             cy.readFile(path.join(downloadsFolder, 'seedingReport_' + today + '.csv')).should("eq", "cool,works?\n12,3\n19,3\n12,12");
+            cy.exec("cd " + downloadsFolder + ' ' + "&& rm -rf *")
         });
     })
 })

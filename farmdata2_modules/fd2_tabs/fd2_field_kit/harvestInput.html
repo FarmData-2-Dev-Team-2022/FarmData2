@@ -1,6 +1,30 @@
 <body>
     <div id='harvestInput'>
-        <h1 style='text-align:center;'>Harvest Input Log</h1> 
+        <h1 style='text-align:center;'>Harvest Input Log</h1>
+        <fieldset class="panel panel-default center-block" style='max-width: 500px;'>
+            <legend class="panel-heading" style='background-color: #da4f3f; color: white;font-size: x-large;'>Data</legend>
+            <div class="center-block" style='padding: 12px; text-align:center; font-size: medium; margin-top: 45px'>
+                <date-selection data-cy="date-selection" :set-date='selectedDate' @date-changed='setNewDate'>Date:<label style='color: #da4f3f'>*</label></date-selection> 
+                <br>
+                <dropdown-with-all data-cy="crop-selection" :selected-val='selectedCrop' :dropdown-list='cropArray' @selection-changed='setNewCrop'>Crop:<label style='color: #da4f3f;'>*</label></dropdown-with-all>
+            </div>
+        </fieldset>
+        <fieldset class="panel panel-default center-block" style="max-width: 500px;">
+            <legend class="panel-heading" style='background-color: #da4f3f; color: white;font-size: x-large;'>
+                Harvest Log
+            </legend>
+            <div v-show='(selectedCrop=="")' style='text-align:center;font-size: medium;'> 
+                <p>Please Select the Crop<label style='color: #da4f3f'>*</label></p>
+            </div>
+            <div v-show='(selectedCrop!="")' style='padding: 12px; text-align:center; font-size: medium; margin-top: 45px;'> 
+                <dropdown-with-all data-cy="area-selection" :selected-val='selectedArea' :dropdown-list='areaFilter' @selection-changed='setNewArea' style='width: 125px;' >Area:<label style='color: #da4f3f'>*</label></dropdown-with-all>
+                <br>
+                <label>Yield:<label style='color: #da4f3f'>*</label>
+                <regex-input data-cy='yield-input' :reg-exp="regPosInt" :default-val="selectedYield" set-type="number" set-min="0" @input-changed="setNewYield" @match-changed="(newBool) =>updateValidMap('validNumCellsPerTray', newBool)"></regex-input> 
+                </label>
+                <label><dropdown-with-all data-cy='unit-selection' :selected-val='selectedUnit' :dropdown-list='feetUnits' @selection-changed='setNewFeetUnit' style='padding-left:20px;' >Unit:</dropdown-with-all>
+            </div>
+        </fieldset>   
     </div>
     <script>
         new Vue({
@@ -10,6 +34,88 @@
                     'dropdown-with-all': DropdownWithAllComponent,
                     'regex-input': RegexInputComponent,
             },
+            data:{
+                selectedDate: dayjs().format('YYYY-MM-DD').toString(),
+                selectedCrop: null,
+                selectedArea: null,
+                selectedYield: null,
+                cropArray: [],
+                areaResponse: [],
+                sessionToken: null,
+                cropToIDMap: new Map(),
+                userToIDMap: new Map(),
+                areaToIDMap: new Map(),
+                unitToIDMap: new Map(),
+                regPosInt: "^[1-9]+[0-9]*$",
+                validMap: {
+                    "validYield": false,
+                    "validMinute": false,
+                    "validHour": false,
+                    "validUnit": false,
+                    "validNumWorker": false,
+                },
+            },
+            methods:{
+                updateValidMap(key, bool) {    
+                    this.validMap[key] = bool;
+                },
+                setNewDate(newDate){
+                    this.selectedDate = newDate
+                },
+                setNewCrop(newCrop){
+                    this.selectedCrop = newCrop
+                },
+                setNewArea(newArea){
+                    this.selectedArea = newArea
+                },
+                setNewYield(newYield){
+                    this.selectedYield = newYield
+                }
+            },
+            created(){
+                let fullResponse = []
+                if(localStorage.getItem('crops') == null){
+                    getAllPages('/taxonomy_term.json?bundle=farm_crops',fullResponse).then(() => {
+                        this.cropArray = fullResponse.map((h) => h.name)
+                        localStorage.setItem('crops', JSON.stringify(this.cropArray))
+                    })
+                }else{
+                    this.cropArray = JSON.parse(localStorage.getItem('crops'))
+                    getAllPages('/taxonomy_term.json?bundle=farm_crops',fullResponse).then(() => {
+                        this.cropArray = fullResponse.map((h) => h.name)
+                        localStorage.setItem('crops', JSON.stringify(this.cropArray))
+                    })
+                }
+                if(localStorage.getItem('areas') == null){
+                    getAllPages('/taxonomy_term.json?bundle=farm_areas', this.areaResponse).then(() => {
+                        localStorage.setItem('areas', JSON.stringify(this.areaResponse))
+                    })
+                }else{
+                    this.areaResponse = JSON.parse(localStorage.getItem('areas'))
+                    getAllPages('/taxonomy_term.json?bundle=farm_areas').then((resp) => {
+                        this.areaResponse = resp
+                        localStorage.setItem('areas', JSON.stringify(resp))
+                    })
+                }
+                getSessionToken().then((response) => {
+                    this.sessionToken = response
+                })
+                getCropToIDMap().then((response) => {
+                    this.cropToIDMap = response
+                })
+                getUserToIDMap().then((response) => {
+                    this.userToIDMap = response
+                })
+                getAreaToIDMap().then((response) => {
+                    this.areaToIDMap = response
+                })
+                getUnitToIDMap().then((response) => {
+                    this.unitToIDMap = response
+                })
+            },
+            computed: {
+
+            }
         })
         Vue.config.devtools = true;
     </script>

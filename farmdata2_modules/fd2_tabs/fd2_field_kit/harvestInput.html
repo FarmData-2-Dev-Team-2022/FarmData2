@@ -1,0 +1,16 @@
+<body>
+    <div id='harvestInput'>
+        <h1 style='text-align:center;'>Harvest Input Log</h1> 
+    </div>
+    <script>
+        new Vue({
+            el: '#harvestInput',
+            components:{
+                    'date-selection': DateSelectionComponent,
+                    'dropdown-with-all': DropdownWithAllComponent,
+                    'regex-input': RegexInputComponent,
+            },
+        })
+        Vue.config.devtools = true;
+    </script>
+</body>

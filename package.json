@@ -35,7 +35,8 @@
         "@theia/cli": "latest"
     },
     "scripts": {
-        "preinstall": "node-gyp install"
+        "preinstall": "node-gyp install",
+        "start": "node --es-module-specifier-resolution=node farmdata2_modules/fd2_tabs/resources/FarmOSAPIEndPoints.js"
     },
     "theiaPluginsDir": "plugins",
     "theiaPlugins": {

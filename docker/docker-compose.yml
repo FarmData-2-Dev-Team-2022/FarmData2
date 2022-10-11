@@ -1,5 +1,15 @@
 version: '2.2'
 services:
+  node:
+    image: alphonso/docker-express-api
+    container_name: express-api
+    ports:
+      - "8000:8000"
+    depends_on: 
+      - db
+    volumes:
+      - './docker-express-api:/app'
+
   db:
     image: mariadb:10.5.8
     container_name: fd2_mariadb
@@ -20,8 +30,8 @@ services:
     # here to force a new build when main is updated.
     image: farmos:fd2.5
     build:
-     context: ./farmOS
-     dockerfile: Dockerfile
+      context: ./farmOS
+      dockerfile: Dockerfile
     container_name: fd2_farmdata2
     volumes:
       - './settings.php:/var/www/html/sites/default/settings.php:delegated'
@@ -46,7 +56,7 @@ services:
     volumes:
       - /sessions
     links:
-     - 'db'
+      - 'db'
 
 #  theiaide:
 #    # If there are changes to the Dockerfile update the tag

@@ -9,6 +9,10 @@ services:
       - db
     volumes:
       - './docker-express-api:/app'
+    networks:
+      - fd2_api
+    expose:
+      - "8000"
 
   db:
     image: mariadb:10.5.8
@@ -22,6 +26,9 @@ services:
       MYSQL_DATABASE: farmd
       MYSQL_USER: farm
       MYSQL_PASSWORD: farm
+    networks:
+      - fd2
+      - fd2_api
 
   www:
     depends_on:
@@ -43,6 +50,9 @@ services:
       - '80:80'
     environment:
       XDEBUG_CONFIG: remote_host=172.17.0.1
+    networks:
+      - fd2
+      - fd2_api
 
   phpmyadmin:
     depends_on:
@@ -57,6 +67,16 @@ services:
       - /sessions
     links:
       - 'db'
+    networks:
+      - fd2
+      - fd2_api
+
+networks:
+  fd2:
+    name: farmdata2
+  fd2_api:
+    name: farmdata2_api
+    internal: true
 
 #  theiaide:
 #    # If there are changes to the Dockerfile update the tag

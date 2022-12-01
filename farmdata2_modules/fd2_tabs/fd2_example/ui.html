@@ -190,6 +190,14 @@
         class="loader center-block" 
         v-if="waitingOnErr"></div>
     </UL>
+    <p><b>Express test</b></p>
+    <UL>
+        <button @click="testCallExpress"> test express check console</button>
+        <button @click="resetExpress"> reset</button>
+        <LI>user name: <span>{{expresstest.username}}</span></LI>
+        <LI>user email: <span>{{expresstest.email}}</span></LI>
+
+    </UL>
 </div>
 
 <script>
@@ -254,6 +262,10 @@ new Vue({
             "RegexInputComponent": false,
             "DateSelectionComponent": false,
             "DateRangeSelectionComponent": false,
+        },
+        expresstest: {
+            username: 'na',
+            email: 'na@na.com',
         }
     },
     methods: {
@@ -347,6 +359,53 @@ new Vue({
             .then(() => {
                 this.waitingOnLogs = false
             })
+        },
+        resetExpress() {
+            Vue.set(this.expresstest, "username", "na")  
+            Vue.set(this.expresstest, "email", "na@na.com") 
+        },
+        testCallExpress() {
+            // return axios("http://localhost:8000/user/1", {
+            //     method: 'GET',
+            //     mode: 'no-cors',
+            //     headers: {
+            //         'Access-Control-Allow-Origin': '*',
+            //         'Content-Type': 'application/json',
+            //     },
+            //     withCredentials: true,
+            //     credentials: 'same-origin',
+            // }).then ((response) => {
+            //     result = res.json(response)
+            //     console.log(result)
+            // }).catch ((err) => {
+            //     reject(err)
+            // })
+            return new Promise ((resolve, reject) => {
+                axios.get("http://localhost:8000/user/1")
+                .then((response) => {
+                    // result = JSON.parse(response)
+                    console.log(response)
+                    var name = response.data.result[0].name
+                    var mail = response.data.result[0].mail
+                    // console.log(this.expresstest)
+                    Vue.set(this.expresstest, "username", name)  
+                    Vue.set(this.expresstest, "email", mail)  
+                    return response
+                }).catch(function (err) {
+                    reject(err)
+                })
+            })
+            // getAllPages(':8000/user/1')
+            // .catch((response) => {
+            //     if (response) {
+            //         console.log(response)
+            //         this.expresstest.name = response.result[0].get("name")
+            //         this.expresstest.email = response.result[0].get("email")
+            //     }
+            // // }).then((response) => {
+                
+            // // }
+        
         },
         badAPICall() {
             // To display the spinner

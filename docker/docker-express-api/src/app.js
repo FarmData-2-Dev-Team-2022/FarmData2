@@ -1,6 +1,7 @@
 
 import express, { request } from 'express'
 import pool from './db'
+import cors from 'cors'
 
 const app = express()
 
@@ -10,7 +11,7 @@ app.get("/", async (req, res) => {
     message: "FarmData server",
   });
 });
-
+app.use(cors())
 app.use(express.json());
 
 const port = process.env.PORT || 8000;

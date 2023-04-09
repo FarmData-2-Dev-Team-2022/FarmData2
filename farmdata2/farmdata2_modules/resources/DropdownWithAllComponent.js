@@ -21,34 +21,34 @@
  * @module 
  */ 
 let DropdownWithAllComponent = {
-    template: `<span data-cy="dropdown-component">
-                    <slot data-cy="slot-text"></slot>
-                    <span data-cy="dropdown" class="dropdown">
-                        <button data-cy="dropdown-input"
-                        class="btn btn-default dropdown-toggle" 
-                        type="button" 
-                        data-toggle="dropdown" 
-                        aria-haspopup="true" 
-                        aria-expanded="true" 
-                        :disabled="isDisabled"
-                        v-model="selectedOption"
-                        @change="selectionChanged">
-                            {{ selectedOption }}
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" 
-                            aria-labelledby="dropdownMenu1" 
-                            style="list-style:none; max-height: 500px; margins: auto; overflow-y:auto; overflow-x:hidden; padding: 0; text-indent: 1px;">
-                            <li v-for="(singleOption, i) in fullDropdown"
-                                :data-cy="'option'+i">
-                                <a  href="#"
-                                    @click="selectionChanged(singleOption)">
-                                {{ singleOption }}
-                                </a>
-                            </li>
-                        </ul>
-                        </span>
-                    </span>`,
+    template: 
+        `<span data-cy="dropdown-component">
+            <slot data-cy="dropdown-slot-text"></slot>
+            <span data-cy="dropdown" class="dropdown">
+                <button data-cy="dropdown-button"
+                class="btn btn-default dropdown-toggle" 
+                type="button" 
+                data-toggle="dropdown" 
+                aria-haspopup="true" 
+                aria-expanded="true" 
+                :disabled="isDisabled">
+                    {{ selectedVal }}
+                    <span class="caret"></span>
+                </button>
+                <ul data-cy="dropdown-list"
+                    class="dropdown-menu" 
+                    aria-labelledby="dropdownMenu1" 
+                    style="list-style:none; max-height: 500px; margins: auto; overflow-y:auto; overflow-x:hidden; padding: 0; text-indent: 1px;">
+                    <li v-for="(singleOption, i) in fullDropdown"
+                        :data-cy="'dropdown-list-item'+i">
+                        <a :data-cy="'option'+i"
+                        @click="newSelection(singleOption)">
+                        {{ singleOption }}
+                        </a>
+                    </li>
+                </ul>
+            </span>
+        </span>`,
 
     // template: `<span data-cy="dropdown-component">
     //         <label for="dropdownOptions"><slot> </slot></label>
@@ -80,7 +80,6 @@ let DropdownWithAllComponent = {
     },
     watch: {
         selectedVal(newVal) {
-            console.log("The new value is: " + newVal)
             if(this.fullDropdown.includes(newVal)) {
                 this.selectedOption = newVal;
             }
@@ -97,15 +96,11 @@ let DropdownWithAllComponent = {
         this.selectionChanged();
     },
     methods: {
-        selectionChanged: function(newSelection) {
-            if(this.selectedOption == null) {
-                this.selectedOption = this.fullDropdown[0]
-            }
-            else{
-                this.selectedOption = this.fullDropdown[this.fullDropdown.indexOf(newSelection)]
-                console.log("selection changed to: " + this.selectedOption)
-                this.$emit('selection-changed', this.selectedOption)
-            }
+        newSelection(option){
+            this.selectedVal = option;
+        },
+        selectionChanged: function() {
+            this.$emit('selection-changed', this.selectedOption)
         },
     },
     computed: {
@@ -116,8 +111,8 @@ let DropdownWithAllComponent = {
                 newList.splice(0,0,"All");
             }
             return newList;
-        },
-    },
+        }
+    }
 }
 /*
  * Export the DropdownWithAllComponent object as a CommonJS component

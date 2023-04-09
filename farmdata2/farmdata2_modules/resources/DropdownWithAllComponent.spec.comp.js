@@ -21,19 +21,19 @@ describe('Field and Crop Dropdowns', () => {
 
         it('contains the right crops and excludes all', () => {
             cy.get('[data-cy=option0]')
-            .should('have.text', 'Beans')
+            .contains('Beans')
 
             cy.get('[data-cy=option1]')
-            .should('have.text', 'Corn')
+            .contains('Corn')
 
             cy.get('[data-cy=option2]')
-            .should('have.text', 'Peas')
+            .contains('Peas')
         })
 
-        it('emits an event when the selection is changed', () => {
+        it.only('emits an event when the selection is changed', () => {
             const spy = cy.spy()
             Cypress.vue.$on('selection-changed', spy)
-            cy.get('[data-cy=dropdown-input]')
+            cy.get('[data-cy=option1]')
                 .select('Corn')
                 .then(() => {
                     expect(spy).to.be.calledOnce

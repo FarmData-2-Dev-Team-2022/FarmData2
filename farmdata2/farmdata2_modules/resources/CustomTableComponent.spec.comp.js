@@ -1,15 +1,8 @@
-import { injectAxe } from 'cypress-axe';
 import { mount } from '@cypress/vue2'
 import { shallowMount } from '@vue/test-utils'
 
 var CustTable = require("./CustomTableComponent.js")
 var CustomTableComponent = CustTable.CustomTableComponent
-
-describe('custom table component', () => {
-    beforeEach(() => {
-        cy.visit('/my-component');
-        cy.injectAxe();
-      })
 
     context('when edit, delete, csv, and custom buttons are not present', () => {
         let prop = {
@@ -713,4 +706,3 @@ describe('custom table component', () => {
             cy.exec("rm -r " + downloadsFolder)
         })
     })
-})

@@ -16,12 +16,5 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 
-// Import Bootstrap and its dependencies 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.min.js';
-import 'jquery/dist/jquery.min.js';
-import 'popper.js/dist/umd/popper.min.js';
-
-
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
